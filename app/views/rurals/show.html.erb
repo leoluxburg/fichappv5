@@ -1,0 +1,557 @@
+<br>
+<br>
+<div class="container">
+ <h1>Registro #<%= @rural.id_catastral %> <i class="fas fa-pencil-alt"></i></h1>
+ <hr>
+ <h6><strong>Cedula catastral:</strong> <%= @rural.id_catastral %> </h6>
+ <p><%= link_to "Reporte (PDF)", rural_path(@rural, :format => 'pdf') %></p>
+<div class="">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home" style="color: black;">General</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1" style="color: black;">Propietario</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2" style="color: black;">Predio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3" style="color: black;">Colindantes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu4" style="color: black;">Propietarios</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu5" style="color: black;">Levantamiento</a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Localizacion del predio</h3>
+          <hr>
+          <p><strong>Dirreccion:</strong></p>
+          <div id='map' style='width: 400px; height: 300px;'></div>
+
+<script>
+  mapboxgl.accessToken = '<%= ENV['MAPBOX_API_KEY'] %>';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [<%= @rural.longitude %>, <%= @rural.latitude %>],
+zoom: 12
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+// Create a default Marker and add it to the map.
+var marker1 = new mapboxgl.Marker()
+.setLngLat([<%= @rural.longitude %>, <%= @rural.latitude %>])
+.addTo(map);
+
+</script>
+<br>
+          <p>
+            <strong>Provincia:</strong>
+            <%= @rural.provincia %>
+          </p>
+
+          <p>
+            <strong>Distrito:</strong>
+            <%= @rural.distrito %>
+          </p>
+
+          <p>
+            <strong>Corregimiento:</strong>
+            <%= @rural.corregimiento %>
+          </p>
+
+          <p>
+            <strong>Ejido:</strong>
+            <%= @rural.ejido %>
+          </p>
+
+          <p>
+            <strong>Lugar:</strong>
+            <%= @rural.lugar %>
+          </p>
+
+          <p>
+            <strong>Calle:</strong>
+            <%= @rural.calle %>
+          </p>
+
+          <p>
+            <strong>Localizacion:</strong>
+            <%= @rural.localizacion %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Datos Generales del Predio</h3>
+          <hr>
+          <p>
+            <strong>N mapa catastral:</strong>
+            <%= @rural.n_mapa_catastral %>
+          </p>
+
+          <p>
+            <strong>N ortofoto:</strong>
+            <%= @rural.n_ortofoto %>
+          </p>
+
+          <p>
+            <strong>N predio:</strong>
+            <%= @rural.n_predio %>
+          </p>
+
+          <p>
+            <strong>Nombre predio:</strong>
+            <%= @rural.nombre_predio %>
+          </p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Estatus Juridico del Predio</h3>
+          <hr>
+          <p>
+            <strong>Titulo propiedad:</strong>
+            <%= @rural.titulo_propiedad %>
+          </p>
+
+          <p>
+            <strong>Ph:</strong>
+            <%= @rural.ph %>
+          </p>
+
+          <p>
+            <strong>Finca ph:</strong>
+            <%= @rural.finca_ph %>
+          </p>
+
+          <p>
+            <strong>Concesion admin:</strong>
+            <%= @rural.concesion_admin %>
+          </p>
+
+          <p>
+            <strong>Litigio:</strong>
+            <%= @rural.litigio %>
+          </p>
+
+          <p>
+            <strong>Tipo de litigio:</strong>
+            <%= @rural.tipo_de_litigio %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Detalles del Titulo</h3>
+          <hr>
+          <p>
+            <strong>Finca:</strong>
+            <%= @rural.finca %>
+          </p>
+
+          <p>
+            <strong>Folio:</strong>
+            <%= @rural.folio %>
+          </p>
+
+          <p>
+            <strong>Docum:</strong>
+            <%= @rural.docum %>
+          </p>
+
+          <p>
+            <strong>Operacion:</strong>
+            <%= @rural.operacion %>
+          </p>
+
+          <p>
+            <strong>Tomo:</strong>
+            <%= @rural.tomo %>
+          </p>
+
+          <p>
+            <strong>Rollo:</strong>
+            <%= @rural.rollo %>
+          </p>
+
+          <p>
+            <strong>Registro:</strong>
+            <%= @rural.registro %>
+          </p>
+
+          <p>
+            <strong>Asiento:</strong>
+            <%= @rural.asiento %>
+          </p>
+
+          <p>
+            <strong>Fecha del titulo:</strong>
+            <%= @rural.fecha_del_titulo %>
+          </p>
+
+          <p>
+            <strong>Fecha de registro:</strong>
+            <%= @rural.fecha_de_registro %>
+          </p>
+
+          <p>
+            <strong>Superficie inscrita:</strong>
+            <%= @rural.superficie_inscrita %>
+          </p>
+
+          <p>
+            <strong>Finca madre:</strong>
+            <%= @rural.finca_madre %>
+          </p>
+
+          <p>
+            <strong>Otorgado:</strong>
+            <%= @rural.otorgado %>
+          </p>
+
+          <p>
+            <strong>Tipo de titulo:</strong>
+            <%= @rural.tipo_de_titulo %>
+          </p>
+
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Detalle de la Concesion</h3>
+          <hr>
+          <p>
+            <strong>N resolucion:</strong>
+            <%= @rural.n_resolucion %>
+          </p>
+
+          <p>
+            <strong>Fecha resolucion:</strong>
+            <%= @rural.fecha_resolucion %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Datos Catastrales</h3>
+          <hr>
+          <p>
+            <strong>Tipo resolucion:</strong>
+            <%= @rural.tipo_resolucion %>
+          </p>
+
+          <p>
+            <strong>N de orden:</strong>
+            <%= @rural.n_de_orden %>
+          </p>
+
+          <p>
+            <strong>N plano:</strong>
+            <%= @rural.n_plano %>
+          </p>
+
+          <p>
+            <strong>Globo:</strong>
+            <%= @rural.globo %>
+          </p>
+
+          <p>
+            <strong>Plano de referencia:</strong>
+            <%= @rural.plano_de_referencia %>
+          </p>
+
+          <p>
+            <strong>Sup reportada:</strong>
+            <%= @rural.sup_reportada %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Datos del Propietario</h3>
+          <hr>
+          <p>
+            <strong>Tipo de persona:</strong>
+            <%= @rural.tipo_de_persona %>
+          </p>
+
+          <p>
+            <strong>Sexo:</strong>
+            <%= @rural.sexo %>
+          </p>
+
+          <p>
+            <strong>Cedula:</strong>
+            <%= @rural.cedula %>
+          </p>
+
+          <p>
+            <strong>N dependientes:</strong>
+            <%= @rural.n_dependientes %>
+          </p>
+
+          <p>
+            <strong>Nacionalidad:</strong>
+            <%= @rural.nacionalidad %>
+          </p>
+
+          <p>
+            <strong>Ocupacion:</strong>
+            <%= @rural.ocupacion %>
+          </p>
+
+          <p>
+            <strong>Primer nombre:</strong>
+            <%= @rural.primer_nombre %>
+          </p>
+
+          <p>
+            <strong>Segundo nombre:</strong>
+            <%= @rural.segundo_nombre %>
+          </p>
+
+          <p>
+            <strong>Primer apellido:</strong>
+            <%= @rural.primer_apellido %>
+          </p>
+
+          <p>
+            <strong>Segundo apellido:</strong>
+            <%= @rural.segundo_apellido %>
+          </p>
+
+          <p>
+            <strong>Nombre casada:</strong>
+            <%= @rural.nombre_casada %>
+          </p>
+
+          <p>
+            <strong>Nombre usual:</strong>
+            <%= @rural.nombre_usual %>
+          </p>
+
+          <p>
+            <strong>Apellido usual:</strong>
+            <%= @rural.apellido_usual %>
+          </p>
+
+          <p>
+            <strong>Organizacion:</strong>
+            <%= @rural.organizacion %>
+          </p>
+
+          <p>
+            <strong>Fecha de nacimiento:</strong>
+            <%= @rural.fecha_de_nacimiento %>
+          </p>
+
+          <p>
+            <strong>Telefono:</strong>
+            <%= @rural.telefono %>
+          </p>
+
+          <p>
+            <strong>Dirreccion:</strong>
+            <%= @rural.dirreccion %>
+          </p>
+
+          <p>
+            <strong>Estado civil:</strong>
+            <%= @rural.estado_civil %>
+          </p>
+
+          <p>
+            <strong>Fecha de ocupacion:</strong>
+            <%= @rural.fecha_de_ocupacion %>
+          </p>
+
+          <p>
+            <strong>Apartado:</strong>
+            <%= @rural.apartado %>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Caracteristicas del predio</h3>
+          <hr>
+          <p>
+            <strong>Topografia:</strong>
+            <%= @rural.topografia %>
+          </p>
+
+          <p>
+            <strong>Agua:</strong>
+            <%= @rural.agua %>
+          </p>
+
+          <p>
+            <strong>Luz:</strong>
+            <%= @rural.luz %>
+          </p>
+
+          <p>
+            <strong>X none:</strong>
+            <%= @rural.x_none %>
+          </p>
+
+          <p>
+            <strong>Tipo de construccion:</strong>
+            <%= @rural.tipo_de_construccion %>
+          </p>
+
+          <p>
+            <strong>Propetario:</strong>
+            <%= @rural.del_propietario %>
+          </p>
+
+          <p>
+            <strong>Otro propetario:</strong>
+            <%= @rural.de_otro %>
+          </p>
+
+          <p>
+            <strong>Uso de tierra:</strong>
+            <%= @rural.uso_de_tierra %>
+          </p>
+
+          <p>
+            <strong>Cercas existentes:</strong>
+            <%= @rural.cercas_existentes %>
+          </p>
+
+          <p>
+            <strong>Hidrigrafia:</strong>
+            <%= @rural.hidrografia %>
+          </p>
+
+          <p>
+            <strong>Vias de acceso:</strong>
+            <%= @rural.vias_de_acceso %>
+          </p>
+
+          <p>
+            <strong>Servidumbre de acceso:</strong>
+            <%= @rural.servidumbre_de_acceso %>
+          </p>
+
+          <p>
+            <strong>Servidumbre:</strong>
+            <%= @rural.servidumbre %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <div id="menu5" class="container tab-pane fade"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Datos de Levantamiento</h3>
+          <hr>
+          <p>
+            <strong>Empadronador nombre:</strong>
+            <%= @rural.empadronador_nombre %>
+          </p>
+
+          <p>
+            <strong>Empadronador firma:</strong>
+            <%= @rural.empadronador_firma %>
+          </p>
+
+          <p>
+            <strong>Inspector nombre:</strong>
+            <%= @rural.inspector_nombre %>
+          </p>
+
+          <p>
+            <strong>Inspector firma:</strong>
+            <%= @rural.inspector_firma %>
+          </p>
+
+          <p>
+            <strong>Supervisor nombre:</strong>
+            <%= @rural.supervisor_nombre %>
+          </p>
+
+          <p>
+            <strong>Supervisor firma:</strong>
+            <%= @rural.supervisor_firma %>
+          </p>
+
+          <p>
+            <strong>Captador nombre:</strong>
+            <%= @rural.captador_nombre %>
+          </p>
+
+          <p>
+            <strong>Captador firma:</strong>
+            <%= @rural.captador_firma %>
+          </p>
+
+          <p>
+            <strong>Empresa:</strong>
+            <%= @rural.empresa %>
+          </p>
+
+          <p>
+            <strong>Metodologia:</strong>
+            <%= @rural.metodologia %>
+          </p>
+
+          <p>
+            <strong>Fecha levantamiento:</strong>
+            <%= @rural.fecha_levantamiento %>
+          </p>
+
+          <p>
+            <strong>Hora levantamiento:</strong>
+            <%= @rural.hora_levantamiento %>
+          </p>
+
+          <p>
+            <strong>Equipo:</strong>
+            <%= @rural.equipo %>
+          </p>
+
+          <p>
+            <strong>Verficado:</strong>
+            <%= @rural.verficado %>
+          </p>
+
+          <p>
+            <strong>Firma propietario:</strong>
+            <%= @rural.firma_propietario %>
+          </p>
+
+          <p>
+            <strong>Cedula propetario:</strong>
+            <%= @rural.cedula_propetario %>
+          </p>
+
+          <p>
+            <strong>Funcionario firma:</strong>
+            <%= @rural.funcionario_firma %>
+          </p>
+
+          <p>
+            <strong>Sustanciador firma:</strong>
+            <%= @rural.sustanciador_firma %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p>Creado por: <%= @rural.user.name  %> <%= @rural.user.last_name  %></p>
+<br>

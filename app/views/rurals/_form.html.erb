@@ -1,0 +1,194 @@
+<%= simple_form_for(@rural) do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="form-inputs">
+  <%= f.input :id_catastral, :label => "Cedula Catastral" %>
+
+  <br>
+  <div class="row">
+    <div class="col-md-6"><h4>Localización del Predio</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo" class="collapse">
+    <% if current_user.role === "Empadronador" %>
+    <%= f.input :address, :label => "Dirrección" %>
+    <%= f.input :geo_point, :label => "Punto Geografico" %>
+    <% else %>
+    <%= f.input :provincia, :label => "Provincia" %>
+    <%= f.input :distrito, :label => "Distrito" %>
+    <%= f.input :corregimiento, :label => "Corregimiento" %>
+    <%= f.input :ejido, :label => "Ejido" %>
+    <%= f.input :lugar, :label => "Lugar", collection: [ "Poblado", "Urbanización", "Barriada" ]%>
+    <%= f.input :calle, :label => "Calle" %>
+    <%= f.input :localizacion , :label => "Localización",  collection: [ "Insular", "Costero", "Tierra Firme" ]%>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Datos generales del Predio</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo1" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo1" class="collapse">
+    <% if current_user.role === "Empadronador" %>
+<%= f.input :n_predio, :label => "No. de Predio" %>
+<% elsif current_user.role === "Captador" %>
+<h1></h1>
+<% else %>
+<%= f.input :n_mapa_catastral, :label => "No. Mapa Catastral" %>
+    <%= f.input :n_ortofoto, :label => "No. Ortofoto" %>
+    <%= f.input :n_predio, :label => "No. de Predio" %>
+    <%= f.input :nombre_predio, :label => "Nombre del Predio" %>
+<% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"> <h4>Estatus Juridico del Predio</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo10" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo10" class="collapse">
+    <%= f.input :titulo_propiedad, :label => "Titulo de propiedad",  collection: [ "Si", "No" ] %>
+    <%= f.input :ph, :label => "Con PH",  collection: [ "Si", "No" ] %>
+    <%= f.input :concesion_admin, :label => "Concesión Administrativa",  collection: [ "Si", "No" ]  %>
+    <%= f.input :finca_ph, :label => "Finca PH" %>
+    <%= f.input :litigio, :label => "En Litigio",  collection: [ "Si", "No" ] %>
+    <%= f.input :tipo_de_litigio, :label => "Tipo de Litigio"%>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Detalle del Titulo</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo2" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo2" class="collapse">
+    <%= f.input :finca, :label => "Finca" %>
+    <%= f.input :folio, :label => "Folio" %>
+    <%= f.input :docum, :label => "Documento" %>
+    <%= f.input :operacion, :label => "Operación" %>
+    <%= f.input :tomo, :label => "Tomo" %>
+    <%= f.input :rollo, :label => "Rollo" %>
+    <%= f.input :registro, :label => "Registro" %>
+    <%= f.input :asiento, :label => "Asiento" %>
+    <%= f.input :fecha_del_titulo, :label => "Fecha del Titulo", start_year: Time.now.year - 100 %>
+    <%= f.input :fecha_de_registro, :label => "Fecha de Registro", start_year: Time.now.year - 100 %>
+    <%= f.input :superficie_inscrita, :label => "Superficie Inscrita" %>
+    <%= f.input :finca_madre, :label => "Finca Madre" %>
+    <%= f.input :otorgado, :label => "Otorgado Por", collection: [ "DINRA", "DCBP" ] %>
+    <%= f.input :tipo_de_titulo, collection: [ "Oneroso", "Gratuito" ]  %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Detalle de la Concesión</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo3" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo3" class="collapse">
+    <%= f.input :n_resolucion, :label => "No. Resolución" %>
+    <%= f.input :fecha_resolucion, :label => "Fecha de Resolución", start_year: Time.now.year - 100  %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Datos Catastrales</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo4" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo4" class="collapse">
+    <%= f.input :tipo_resolucion, :label => "Tipo de Resolución" %>
+    <%= f.input :n_de_orden , :label => "No. de Orden" %>
+    <%= f.input :n_plano, :label => "No. Plano" %>
+    <%= f.input :globo, :label => "Globo" %>
+    <%= f.input :plano_de_referencia, :label => "Plano de Referencia" %>
+    <%= f.input :sup_reportada, :label => "Sup. Reportada" %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Datos del Propietario</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo5" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo5" class="collapse">
+    <%= f.input :tipo_de_persona, :label => "Tipo de Persona", collection: [ "Natural", "Juridica"]  %>
+    <%= f.input :sexo, :label => "Sexo", collection: [ "Masculino", "Femenina"] %>
+    <%= f.input :cedula, :label => "Cédula/RUC" %>
+    <%= f.input :n_dependientes, :label => "No. de Dependientes" %>
+    <%= f.input :nacionalidad, :label => "Nacionalidad" %>
+    <%= f.input :ocupacion, :label => "Ocupación" %>
+    <%= f.input :primer_nombre, :label => "Primer Nombre" %>
+    <%= f.input :segundo_nombre, :label => "Segundo Nombre" %>
+    <%= f.input :primer_apellido, :label => "Primer Apellido"  %>
+    <%= f.input :segundo_apellido, :label => "Segundo Apellido"  %>
+    <%= f.input :nombre_casada, :label => "Apellido de Casada" %>
+    <%= f.input :nombre_usual, :label => "Nombre Usual" %>
+    <%= f.input :apellido_usual, :label => "Apellido Usual"  %>
+    <%= f.input :organizacion, :label => "Organización"  %>
+    <%= f.input :fecha_de_nacimiento, :label => "Fecha de Nacimiento", start_year: Time.now.year - 100  %>
+    <%= f.input :telefono , :label => "Teléfono" %>
+    <%= f.input :dirreccion , :label => "Dirrección/Residencia" %>
+    <%= f.input :estado_civil, :label => "Estado Civil" %>
+    <%= f.input :fecha_de_ocupacion, :label => "Fecha de Ocupación", start_year: Time.now.year - 100  %>
+    <%= f.input :apartado, :label => "Apartado"  %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Caracteristicas del predio</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo6" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo6" class="collapse">
+    <%= f.input :topografia, :label => "Topografia", collection: [ "Plano", "Quebrada","Ondulada", "Pendiente Aprox" ]  %>
+    <%= f.input :pendiente_ap, :label => "Topografia" %>
+    <p>Servicios Publicos</p>
+    <div class="row">
+      <div class="col-md-4"><%= f.input :agua, :label => "Agua" %></div>
+      <div class="col-md-4"><%= f.input :luz, :label => "Luz" %></div>
+      <div class="col-md-4"><%= f.input :x_none, :label => "Ninguna" %></div>
+    </div>
+    <%= f.input :tipo_de_construccion, :label => "Tipo de Construcción", collection: [ "Permanente", "Temporal","Ninguna"] %>
+    <%= f.input :del_propietario, :label => "Propietario", collection: [ "Del propetario", "de Otro"] %>
+    <%= f.input :de_otro, :label => "Otro propietario"%>
+    <%= f.input :uso_de_tierra, :label => "Uso de la Tierra", collection: [ "Agricola", "Vivienda","Uso Publico", "Ganaderia", "Comunal", "Otro uso" ] %>
+    <%= f.input :cercas_existentes, :label => "Cercas Existentes", collection: [ "Vivas", "Ambas","Muertas", "Ninguna"] %>
+    <%= f.input :hidrografia, :label => "Hidrografia", collection: [ "Permanente", "Temporal", "Ninguna"] %>
+    <%= f.input :vias_de_acceso, :label => "Vias de Acceso", collection: [ "Concreto", "Asfalto", "Grava", "Piedra/Tierra", "Servidumbre", "Otros"]  %>
+    <%= f.input :servidumbre_de_acceso, :label => "Servidumbre de acceso a otros predios", collection: [ "Si", "No", ] %>
+    <%= f.input :servidumbre, :label => "Servidumbre para" %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Observaciones de Ficha</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo8" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo8" class="collapse">
+    <%= f.input :observaciones_ficha, :label => "Observaciones"  %>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><h4>Datos del Levantamiento</h4></div>
+    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo9" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+  </div>
+  <hr>
+  <div id="demo9" class="collapse">
+    <p>Empadronador</p>
+    <%= f.input :empadronador_nombre, :label => "Nombre"  %>
+    <%= f.input :empadronador_firma, :label => "Firma"  %>
+    <p>Inspector</p>
+    <%= f.input :inspector_nombre, :label => "Nombre"  %>
+    <%= f.input :inspector_firma, :label => "Firma"  %>
+    <p>Supervisor</p>
+    <%= f.input :supervisor_nombre, :label => "Nombre" %>
+    <%= f.input :supervisor_firma, :label => "Firma" %>
+    <p>Captador</p>
+    <%= f.input :captador_nombre, :label => "Nombre" %>
+    <%= f.input :captador_firma, :label => "Firma" %>
+    <%= f.input :empresa, :label => "Empresa" %>
+    <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
+    <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
+    <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
+    <%= f.input :equipo , :label => "Equipo" %>
+    <%= f.input :verficado, :label => "Verficado por" %>
+    <%= f.input :firma_propietario, :label => "Firma de Propietario" %>
+    <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
+    <%= f.input :funcionario_firma, :label => "Nombre de Funcionario" %>
+    <%= f.input :sustanciador_firma, :label =>"Nombre de Sustanciador"  %>
+  </div>
+</div>
+<br>
+<div class="form-actions text-center">
+  <%= f.button :submit, 'Guardar', class: 'btn btn-fichapp'%>
+</div>
+<% end %>

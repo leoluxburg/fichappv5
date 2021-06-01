@@ -1,35 +1,82 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <h1>Ajustes de Usuario</h1>
+    <% if current_user.present? %>
+    <p>Usuario - <%= current_user.name %><%= current_user.last_name %></p>
+    <p>Role - <%= current_user.role %></p>
+    <% else %>
+    <p>Log in</p>
+    <% end %>
+    <hr>
+    <h3>Cambiar Contraseña</h3>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: 'form-control'  %>
+    </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    <div class="form-group">
+      <%= f.label :Contraseña %> <i>(No escribas nada si no deseas cambiar la contraseña.)</i><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :Confirmar_Contraseña %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control'  %>
+    </div>
+    <hr>
+    <div class="form-group">
+      <%= f.submit "Editar", class: 'btn btn-fichapp' %>
+      <br>
+      <br>
+      <%= link_to "#{@user.otp_module_enabled? ? 'Desactivar' : 'Activar'} Autenticación de Dos Pasos",
+      '#two_factor',
+      data: { toggle: :modal },
+      class: 'btn btn-lg btn-block btn-fichapp' %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+</div>
+</div>
+<div class="container">
+  <div class="modal fade" id="two_factor">
+    <% url = @user.otp_module_enabled? ? disable_multi_factor_authentication_user_path(@user) : enable_multi_factor_authentication_user_path(@user) %>
+    <%= simple_form_for :multi_factor_authentication, url: url, html: { class: 'form-inline' }  do |f| %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"><%= @user.otp_module_enabled? ? 'Desactivar' : 'Activar' %> Autenticación de Dos Pasos</h4>
+        </div>
+        <div class="modal-body">
+          <% unless @user.otp_module_enabled? %>
+          <% qr = RQRCode::QRCode.new(resource.provisioning_uri, :size => 8, :level => :h) %>
+          <%= raw qr.as_html %>
+          <hr>
+          <% end %>
+          <div class='form-group'>
+            <div class='text-center'>
+              <%= f.input_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-fichapp' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

@@ -1,20 +1,33 @@
-<h2>Log in</h2>
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <h2>Inicio de Sesion</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
+                :label => "Correo Electronico",
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
     <%= f.input :password,
+                :label => "Contraseña",
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
+    <p>Token</p>
+    <%= f.text_field :otp_code_token,placeholder: 'Token', class: 'form-control' %>
+    <br>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: 'btn btn-fichapp'  %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</div>
+</div>
+<br>
+<br>
