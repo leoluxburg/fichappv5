@@ -1,7 +1,7 @@
 <br>
 <br>
 <div class="container">
- <h1>Registro #<%= @rural.id_catastral %> <i class="fas fa-pencil-alt"></i></h1>
+ <h1>Registro #<%= @rural.id_catastral %> <%= link_to edit_rural_path(@rural) do %><i class="fas fa-pencil-alt"></i><% end %></h1>
  <hr>
  <h6><strong>Cedula catastral:</strong> <%= @rural.id_catastral %> </h6>
  <p><%= link_to "Reporte (PDF)", rural_path(@rural, :format => 'pdf') %></p>
