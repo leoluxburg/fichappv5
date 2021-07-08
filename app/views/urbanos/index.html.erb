@@ -1,0 +1,43 @@
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <div class="">
+      <div class="text-center">
+       <h1><i class="fas fa-building"></i></h1>
+       <h2>URBANA</h2>
+       <h4>Fichas Registradas</h4>
+     </div>
+    <br>
+     <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Numero de Lote</th>
+            <th scope="col"><i class="fas fa-eye"></i></th>
+            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @urbanos.each do |urbano| %>
+          <tr>
+            <th scope="row">1<%= urbano.n_predio %></th>
+            <td style="border-color: white;"><%= link_to 'Ver', urbano %></td>
+            <td style="border-color: white;"><%= link_to 'Editar', edit_urbano_path(urbano) %></td>
+            <td style="border-color: white;"><%= link_to 'Eliminar', urbano, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="text-center">
+      <%= link_to 'Registar', new_urbano_path, class: 'btn btn-fichapp' %>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+

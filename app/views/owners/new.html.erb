@@ -1,0 +1,31 @@
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="text-center">Agregar Propietario</h2>
+      </div>
+      <%= simple_form_for [@rural, @owner] do |f|%>
+      <%= f.input :fecha_oc, :label => "Fecha de Ocupacion" %>
+      <%= f.input :fecha_nac, :label => "Fecha de Nacimiento" %>
+      <%= f.input :p_nombre, :label => "Primer Nombre" %>
+      <%= f.input :s_nombre, :label => "Segundo Nomnbre" %>
+      <%= f.input :p_apellido, :label => "Apellido" %>
+      <%= f.input :s_apellido, :label => "Segundo Apellido" %>
+      <%= f.input :c_apellido, :label => "Apellido de Casada" %>
+      <%= f.input :nombre_u, :label => "Nombre Usual" %>
+      <%= f.input :organizacion, :label => "Organizacion" %>
+      <%= f.input :cedula, :label => "Cedula/RUC" %>
+      <%= f.input :estado_c, :label => "Estado Civil" %>
+      <%= f.input :telefono, :label => "Telefono" %>
+      <%= f.input :apartado, :label => "Apartado" %>
+      <%= f.input :ocupacion, :label => "Ocupacion" %>
+      <%= f.input :dirreccion, :label => "Direccion" %>
+      <%= f.submit "Guardar", class: "btn btn-fichapp" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>

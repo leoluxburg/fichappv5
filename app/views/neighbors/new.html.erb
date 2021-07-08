@@ -1,0 +1,19 @@
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="text-center">Agregar Colindate</h2>
+      </div>
+      <%= simple_form_for [@rural, @neighbor] do |f|%>
+      <%= f.input :name, :label => "Nombre" %>
+      <%= f.input :id_number, :label => "Cedula" %>
+      <%= f.input :estate, :label => "Finca" %>
+      <%= f.submit "Guardar", class: "btn btn-fichapp" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>

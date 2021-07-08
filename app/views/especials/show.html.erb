@@ -1,0 +1,740 @@
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+     <div class="text-center">
+      <h1><i class="fas fa-building"></i></h1>
+      <h2 class="text-center">Ficha Catastral Rural #<%= @especial.id %></h2>
+    </div>
+    <br>
+    <h3>Cedula catastral: <%= @especial.id_catastral %></h3>
+    <hr>
+    <p><%= link_to "Reporte (PDF)", report_especial_path(@especial) %></p>
+    <div class="">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home" style="color: black;">General</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1" style="color: black;">Propietario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2" style="color: black;">Predio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu6" style="color: black;">Mejoras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu3" style="color: black;">Colindantes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu4" style="color: black;">Propietarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu5" style="color: black;">Levantamiento</a>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="home" class="container tab-pane active"><br>
+          <div class="row">
+            <div class="col-md-6">
+             <h3>Localizacion del predio</h3>
+             <hr>
+             <p><strong>Dirreccion:</strong></p>
+             <div id='map' style='width: 400px; height: 300px;'></div>
+             <br>
+             <p>
+              <strong>Provincia:</strong>
+              <%= @especial.provincia %>
+            </p>
+
+            <p>
+              <strong>Distrito:</strong>
+              <%= @especial.distrito %>
+            </p>
+
+            <p>
+              <strong>Corregimiento:</strong>
+              <%= @especial.corregimiento %>
+            </p>
+
+            <p>
+              <strong>Ejido:</strong>
+              <%= @especial.ejido %>
+            </p>
+
+            <p>
+              <strong>Lugar:</strong>
+              <%= @especial.lugar %>
+            </p>
+
+            <p>
+              <strong>Calle:</strong>
+              <%= @especial.calle %>
+            </p>
+
+            <p>
+              <strong>Localizacion:</strong>
+              <%= @especial.localizacion %>
+            </p>
+            <br>
+            <h3>Detalles del Titulo</h3>
+            <hr>
+            <p>
+              <strong>Finca:</strong>
+              <%= @especial.finca %>
+            </p>
+
+            <p>
+              <strong>Folio:</strong>
+              <%= @especial.folio %>
+            </p>
+
+            <p>
+              <strong>Docum:</strong>
+              <%= @especial.docum %>
+            </p>
+
+            <p>
+              <strong>Operacion:</strong>
+              <%= @especial.operacion %>
+            </p>
+
+            <p>
+              <strong>Tomo:</strong>
+              <%= @especial.tomo %>
+            </p>
+
+            <p>
+              <strong>Rollo:</strong>
+              <%= @especial.rollo %>
+            </p>
+
+            <p>
+              <strong>Registro:</strong>
+              <%= @especial.registro %>
+            </p>
+
+            <p>
+              <strong>Asiento:</strong>
+              <%= @especial.asiento %>
+            </p>
+
+            <p>
+              <strong>Fecha del titulo:</strong>
+              <%= @especial.fecha_del_titulo %>
+            </p>
+
+            <p>
+              <strong>Fecha de registro:</strong>
+              <%= @especial.fecha_de_registro %>
+            </p>
+
+            <p>
+              <strong>Superficie inscrita:</strong>
+              <%= @especial.superficie_inscrita %>
+            </p>
+
+            <p>
+              <strong>Finca madre:</strong>
+              <%= @especial.finca_madre %>
+            </p>
+
+            <p>
+              <strong>Otorgado:</strong>
+              <%= @especial.otorgado %>
+            </p>
+
+            <p>
+              <strong>Tipo de titulo:</strong>
+              <%= @especial.tipo_de_titulo %>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Datos Generales del Predio</h3>
+            <hr>
+            <p>
+              <strong>No. Mapa catastral:</strong>
+              <%= @especial.n_mapa_catastral %>
+            </p>
+
+            <p>
+              <strong>No. Ortofoto:</strong>
+              <%= @especial.n_ortofoto %>
+            </p>
+
+            <p>
+              <strong>No. Predio:</strong>
+              <%= @especial.n_predio %>
+            </p>
+            <p>
+              <strong>Secuencia Predial:</strong>
+              <%= @especial.s_predial %>
+            </p>
+            <p>
+              <strong>Nombre predio:</strong>
+              <%= @especial.nombre_predio %>
+            </p>
+            <br>
+            <h3>Estatus Juridico del Predio</h3>
+            <hr>
+            <p>
+              <strong>Titulo propiedad:</strong>
+              <%= @especial.titulo_propiedad %>
+            </p>
+            <p>
+              <strong>Ph:</strong>
+              <%= @especial.ph %>
+            </p>
+            <p>
+              <strong>Finca ph:</strong>
+              <%= @especial.finca_ph %>
+            </p>
+            <p>
+              <strong>Concesion admin:</strong>
+              <%= @especial.concesion_admin %>
+            </p>
+            <p>
+              <strong>Litigio:</strong>
+              <%= @especial.litigio %>
+            </p>
+            <p>
+              <strong>Tipo de litigio:</strong>
+              <%= @especial.tipo_de_litigio %>
+            </p>
+            <br>
+            <h3>Detalle de la Concesion</h3>
+            <hr>
+            <p>
+              <strong>No. Resolucion:</strong>
+              <%= @especial.n_resolucion %>
+            </p>
+
+            <p>
+              <strong>Fecha resolucion:</strong>
+              <%= @especial.fecha_resolucion %>
+            </p>
+            <br>
+            <h3>Datos Catastrales</h3>
+            <hr>
+            <p>
+              <strong>Tipo resolucion:</strong>
+              <%= @especial.tipo_resolucion %>
+            </p>
+
+            <p>
+              <strong>No. de Orden:</strong>
+              <%= @especial.n_de_orden %>
+            </p>
+
+            <p>
+              <strong>No. de Plano:</strong>
+              <%= @especial.n_plano %>
+            </p>
+
+            <p>
+              <strong>Globo:</strong>
+              <%= @especial.globo %>
+            </p>
+
+            <p>
+              <strong>Plano de Referencia:</strong>
+              <%= @especial.plano_de_referencia %>
+            </p>
+
+            <p>
+              <strong>Sup Reportada:</strong>
+              <%= @especial.sup_reportada %>
+            </p>
+          </div>
+        </div>
+        <br>
+
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Detalle de la Concesion</h3>
+            <hr>
+            <p>
+              <strong>N resolucion:</strong>
+              <%= @especial.n_resolucion %>
+            </p>
+
+            <p>
+              <strong>Fecha resolucion:</strong>
+              <%= @especial.fecha_resolucion %>
+            </p>
+
+
+          </div>
+          <div class="col-md-6">
+            <h3>Datos Catastrales</h3>
+            <hr>
+            <p>
+              <strong>Tipo resolucion:</strong>
+              <%= @especial.tipo_resolucion %>
+            </p>
+
+            <p>
+              <strong>N de orden:</strong>
+              <%= @especial.n_de_orden %>
+            </p>
+
+            <p>
+              <strong>N plano:</strong>
+              <%= @especial.n_plano %>
+            </p>
+
+            <p>
+              <strong>Globo:</strong>
+              <%= @especial.globo %>
+            </p>
+
+            <p>
+              <strong>Plano de referencia:</strong>
+              <%= @especial.plano_de_referencia %>
+            </p>
+
+            <p>
+              <strong>Sup reportada:</strong>
+              <%= @especial.sup_reportada %>
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div id="menu1" class="container tab-pane fade"><br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Datos del Propietario</h3>
+            <hr>
+            <p>
+              <strong>Tipo de persona:</strong>
+              <%= @especial.tipo_de_persona %>
+            </p>
+
+            <p>
+              <strong>Sexo:</strong>
+              <%= @especial.sexo %>
+            </p>
+
+            <p>
+              <strong>Cedula:</strong>
+              <%= @especial.cedula %>
+            </p>
+
+            <p>
+              <strong>N dependientes:</strong>
+              <%= @especial.n_dependientes %>
+            </p>
+
+            <p>
+              <strong>Nacionalidad:</strong>
+              <%= @especial.nacionalidad %>
+            </p>
+
+            <p>
+              <strong>Ocupacion:</strong>
+              <%= @especial.ocupacion %>
+            </p>
+
+            <p>
+              <strong>Primer nombre:</strong>
+              <%= @especial.primer_nombre %>
+            </p>
+
+            <p>
+              <strong>Segundo nombre:</strong>
+              <%= @especial.segundo_nombre %>
+            </p>
+
+            <p>
+              <strong>Primer apellido:</strong>
+              <%= @especial.primer_apellido %>
+            </p>
+
+            <p>
+              <strong>Segundo apellido:</strong>
+              <%= @especial.segundo_apellido %>
+            </p>
+
+            <p>
+              <strong>Nombre casada:</strong>
+              <%= @especial.nombre_casada %>
+            </p>
+
+            <p>
+              <strong>Nombre usual:</strong>
+              <%= @especial.nombre_usual %>
+            </p>
+
+            <p>
+              <strong>Apellido usual:</strong>
+              <%= @especial.apellido_usual %>
+            </p>
+
+            <p>
+              <strong>Organizacion:</strong>
+              <%= @especial.organizacion %>
+            </p>
+
+            <p>
+              <strong>Fecha de nacimiento:</strong>
+              <%= @especial.fecha_de_nacimiento %>
+            </p>
+
+            <p>
+              <strong>Telefono:</strong>
+              <%= @especial.telefono %>
+            </p>
+
+            <p>
+              <strong>Dirreccion:</strong>
+              <%= @especial.dirreccion %>
+            </p>
+
+            <p>
+              <strong>Estado civil:</strong>
+              <%= @especial.estado_civil %>
+            </p>
+
+            <p>
+              <strong>Fecha de ocupacion:</strong>
+              <%= @especial.fecha_de_ocupacion %>
+            </p>
+
+            <p>
+              <strong>Apartado:</strong>
+              <%= @especial.apartado %>
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div id="menu2" class="container tab-pane fade"><br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Caracteristicas del predio</h3>
+            <hr>
+            <p>
+              <strong>Topografia:</strong>
+              <%= @especial.topografia %>
+            </p>
+
+            <p>
+              <strong>Agua:</strong>
+              <%= @especial.agua %>
+            </p>
+
+            <p>
+              <strong>Luz:</strong>
+              <%= @especial.luz %>
+            </p>
+
+            <p>
+              <strong>X none:</strong>
+              <%= @especial.x_none %>
+            </p>
+
+            <p>
+              <strong>Tipo de construccion:</strong>
+              <%= @especial.tipo_de_construccion %>
+            </p>
+
+            <p>
+              <strong>Uso de tierra:</strong>
+              <%= @especial.uso_de_tierra %>
+            </p>
+
+            <p>
+              <strong>Cercas existentes:</strong>
+              <%= @especial.cercas_existentes %>
+            </p>
+
+            <p>
+              <strong>Hidrigrafia:</strong>
+              <%= @especial.hidrigrafia %>
+            </p>
+
+            <p>
+              <strong>Vias de acceso:</strong>
+              <%= @especial.vias_de_acceso %>
+            </p>
+
+            <p>
+              <strong>Servidumbre de acceso:</strong>
+              <%= @especial.servidumbre_de_acceso %>
+            </p>
+
+            <p>
+              <strong>Servidumbre:</strong>
+              <%= @especial.servidumbre %>
+            </p>
+
+            <p>
+              <strong>N manzanas:</strong>
+              <%= @especial.n_manzanas %>
+            </p>
+
+            <p>
+              <strong>Acera:</strong>
+              <%= @especial.acera %>
+            </p>
+
+            <p>
+              <strong>Acueductos:</strong>
+              <%= @especial.acueductos %>
+            </p>
+
+            <p>
+              <strong>Tuberia gas:</strong>
+              <%= @especial.tuberia_gas %>
+            </p>
+
+            <p>
+              <strong>M cordon:</strong>
+              <%= @especial.m_cordon %>
+            </p>
+
+            <p>
+              <strong>Alcantarillado:</strong>
+              <%= @especial.alcantarillado %>
+            </p>
+
+            <p>
+              <strong>Telefono m:</strong>
+              <%= @especial.telefono_m %>
+            </p>
+
+            <p>
+              <strong>M luz:</strong>
+              <%= @especial.m_luz %>
+            </p>
+
+            <p>
+              <strong>Tv:</strong>
+              <%= @especial.tv %>
+            </p>
+
+            <p>
+              <strong>Senal celular:</strong>
+              <%= @especial.senal_celular %>
+            </p>
+
+            <p>
+              <strong>Sena satelital:</strong>
+              <%= @especial.sena_satelital %>
+            </p>
+
+            <p>
+              <strong>M otro:</strong>
+              <%= @especial.m_otro %>
+
+            </div>
+          </div>
+        </div>
+        <div id="menu6" class="container tab-pane fade"><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Descripcion de las mejoras</h3>
+              <hr>
+
+
+              <p>
+                <strong>Tipo resindencial:</strong>
+                <%= @especial.tipo_resindencial %>
+              </p>
+
+              <p>
+                <strong>Paredes:</strong>
+                <%= @especial.paredes %>
+              </p>
+
+              <p>
+                <strong>Estructura techo:</strong>
+                <%= @especial.estructura_techo %>
+              </p>
+
+              <p>
+                <strong>Cubierta techo:</strong>
+                <%= @especial.cubierta_techo %>
+              </p>
+
+              <p>
+                <strong>Solo agua:</strong>
+                <%= @especial.solo_agua %>
+              </p>
+
+              <p>
+                <strong>N diseminados:</strong>
+                <%= @especial.n_diseminados %>
+              </p>
+
+              <p>
+                <strong>N servicio2:</strong>
+                <%= @especial.n_servicio2 %>
+              </p>
+
+              <p>
+                <strong>N servicio3:</strong>
+                <%= @especial.n_servicio3 %>
+              </p>
+
+              <p>
+                <strong>Electricidad:</strong>
+                <%= @especial.electricidad %>
+              </p>
+
+              <p>
+                <strong>M otro2:</strong>
+                <%= @especial.m_otro2 %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="menu3" class="container tab-pane fade"><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Datos de colindates</h3>
+              <hr>
+
+            </div>
+          </div>
+        </div>
+        <div id="menu4" class="container tab-pane fade"><br>
+          <div class="row">
+           <div class="col-md-6">
+            <h3>Otros Propietarios</h3>
+            <hr>
+
+          </div>
+        </div>
+      </div>
+      <div id="menu5" class="container tab-pane fade"><br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Datos de Levantamiento</h3>
+            <hr>
+
+
+            <p>
+              <strong>Empadronador nombre:</strong>
+              <%= @especial.empadronador_nombre %>
+            </p>
+
+            <p>
+              <strong>Empadronador firma:</strong>
+              <%= @especial.empadronador_firma %>
+            </p>
+
+            <p>
+              <strong>Inspector nombre:</strong>
+              <%= @especial.inspector_nombre %>
+            </p>
+
+            <p>
+              <strong>Inspector firma:</strong>
+              <%= @especial.inspector_firma %>
+            </p>
+
+            <p>
+              <strong>Supervisor nombre:</strong>
+              <%= @especial.supervisor_nombre %>
+            </p>
+
+            <p>
+              <strong>Supervisor firma:</strong>
+              <%= @especial.supervisor_firma %>
+            </p>
+
+            <p>
+              <strong>Captador nombre:</strong>
+              <%= @especial.captador_nombre %>
+            </p>
+
+            <p>
+              <strong>Captador firma:</strong>
+              <%= @especial.captador_firma %>
+            </p>
+
+            <p>
+              <strong>Empresa:</strong>
+              <%= @especial.empresa %>
+            </p>
+
+            <p>
+              <strong>Metodologia:</strong>
+              <%= @especial.metodologia %>
+            </p>
+
+            <p>
+              <strong>Fecha levantamiento:</strong>
+              <%= @especial.fecha_levantamiento %>
+            </p>
+
+            <p>
+              <strong>Hora levantamiento:</strong>
+              <%= @especial.hora_levantamiento %>
+            </p>
+
+            <p>
+              <strong>Equipo:</strong>
+              <%= @especial.equipo %>
+            </p>
+
+            <p>
+              <strong>Verficado:</strong>
+              <%= @especial.verficado %>
+            </p>
+
+            <p>
+              <strong>Firma propietario:</strong>
+              <%= @especial.firma_propietario %>
+            </p>
+
+            <p>
+              <strong>Cedula propetario:</strong>
+              <%= @especial.cedula_propetario %>
+            </p>
+
+            <p>
+              <strong>Funcionario firma:</strong>
+              <%= @especial.funcionario_firma %>
+            </p>
+
+            <p>
+              <strong>Sustanciador firma:</strong>
+              <%= @especial.sustanciador_firma %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <%= link_to 'Edit', edit_especial_path(@especial) %> |
+  <%= link_to 'Back', especials_path %>
+</div>
+ <br>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGVvbmFyZG9sdXhidXJnIiwiYSI6ImNrcGQ1anJyazFjaG4yb28xZXd3OHN2cXYifQ.-GSLSv_1CUBP_y3-DNo7Ew';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [<%= @especial.longitude %>, <%= @especial.latitude %>],
+      zoom: 12
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+            // Create a default Marker and add it to the map.
+            var marker1 = new mapboxgl.Marker()
+            .setLngLat([<%= @especial.longitude %>, <%= @especial.latitude %>])
+            .addTo(map);
+
+          </script>
+

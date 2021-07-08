@@ -1,6 +1,6 @@
 class RuralsController < ApplicationController
-  before_action :set_rural, only: %i[ show edit update destroy ]
-
+  before_action :set_rural, only: %i[ show edit update destroy report ]
+  layout false, only: [:report]
   # GET /rurals or /rurals.json
   def index
     @rurals = Rural.all
@@ -9,14 +9,22 @@ class RuralsController < ApplicationController
   # GET /rurals/1 or /rurals/1.json
   def show
 
-    @marker =
-      {
-        lat: @rural.latitude,
-        lng: @rural.longitude
-      }
+    @marker = {lng: @rural.longitude, lat: @rural.latitude}
 
+    puts @marker
   end
 
+  def report
+    @c =  @rural.neighbors[0]
+    @c1 =  @rural.neighbors[1]
+    @c2 =  @rural.neighbors[2]
+    @c3 =  @rural.neighbors[3]
+    @c4 =  @rural.neighbors[4]
+    @c5 =  @rural.neighbors[5]
+    @own = @rural.owners[0]
+    @own1 = @rural.owners[1]
+    @own2 = @rural.owners[2]
+  end
   # GET /rurals/new
   def new
     @rural = Rural.new
@@ -28,11 +36,8 @@ class RuralsController < ApplicationController
 
   # POST /rurals or /rurals.json
   def create
-    puts "Entry"
     @rural = Rural.new(rural_params)
-    puts "here!"
     @rural = current_user.rurals.new(rural_params)
-    puts "here2!"
     respond_to do |format|
       if @rural.save
         format.html { redirect_to @rural, notice: "Rural was successfully created." }

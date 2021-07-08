@@ -1,0 +1,48 @@
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <div class="text-center">
+      <i class="fas fa-map-marked-alt" style="font-size: 100px;"></i>
+      <br>
+      <br>
+      <h3>Solicitar Coordenadas: </h3>
+      <p>Haz click en el boton para obtener tus coordenadas actuales.</p>
+      <button onclick="getLocation()" class="btn btn-fichapp">Click AQUI</button>
+      <hr>
+      <p>Coordenadas: </p>
+      <p id="demo"></p>
+      <button onclick="copyToClipboard('demo')" class="btn btn-fichapp">
+        <i class="fas fa-clipboard"></i>
+      </button>
+      <hr>
+    </div>
+  </div>
+</div>
+<script>
+  var x = document.getElementById("demo");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = position.coords.latitude +
+    ", " + position.coords.longitude ;
+  }
+
+  function copyToClipboard(elementId) {
+    var aux = document.createElement("input");
+    aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);}
+    function log() {
+    console.log('---')
+    }
+
+  </script>

@@ -1,0 +1,2977 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #444;
+        }
+
+        div.page {
+            background: #ffffff;
+            position: relative;
+            width: 14in;
+            height: 8.5in;
+            margin: 0.2cm auto;
+        }
+
+        .pagecontent {
+            padding: 0.1in;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        td {
+            padding: 3px 1px;
+            margin: 0;
+            border-collapse: collapse;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .divContent {
+            padding: 5px;
+            border: 1px solid #000000;
+
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 5cm;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .txt40 {
+            font-size: 40pt;
+        }
+
+        .txt13 {
+            font-size: 13pt;
+        }
+
+        .txt12 {
+            font-size: 12pt;
+        }
+
+        .txt10 {
+            font-size: 10pt;
+        }
+
+        .txt9 {
+            font-size: 9pt;
+        }
+
+        .txt8 {
+            font-size: 8pt;
+        }
+
+        .txt7 {
+            font-size: 7pt;
+        }
+
+        .txt6 {
+            font-size: 6pt;
+        }
+
+        .txtBold {
+            font-weight: bold;
+        }
+
+        .txtBold2 {
+            font-weight: 900;
+        }
+
+        .txtCenter {
+            text-align: center;
+        }
+
+        .txtRight {
+            text-align: right;
+        }
+
+        .txtGray {
+            color: gray;
+        }
+
+        .border {
+            border-right: 1px solid #000000;
+            border-left: 1px solid #000000;
+        }
+
+        .rbBlack {
+            border-right: 1px solid #000000;
+        }
+
+        .bbBlack {
+            border-bottom: 1px solid #000000;
+        }
+
+        .tbBlack {
+            border-top: 1px solid #000000;
+        }
+
+        .bgGray {
+            background: #dadada;
+        }
+
+        #tblDetail tr td {
+            min-height: 28px;
+            height: 40px;
+            max-height: 52px;
+            padding: 2px;
+        }
+
+        #tblDetail2 tr td {
+            height: 20px;
+            padding: 2px 6px;
+        }
+
+        .box {
+            border: 1px solid black;
+            height: 20px;
+        }
+
+        .tblNoBorder, .tblNoBorder td {
+            border: none;
+        }
+
+        .box2{
+            height: 9px;
+        }
+        @media print {
+            div.page {
+                margin: 0;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="pagecontent">
+        <p class="txt10 txtCenter">SISTEMA INTEGRADO DE INFORMATION CATASTRO-REGISTRO</p>
+
+        <p class="txt10 txtBold txtCenter">FICHA CATASTRAL</p>
+
+        <table style="margin-top: 15px; margin-bottom: 10px;" class="tblNoBorder">
+            <tr>
+                <td width="2%"></td>
+                <td width="13%"><p class="txt8">CEDULA CATASTRAL</p></td>
+                <td width="20%">
+                    <div class="box"></div>
+                </td>
+                <td width="30%"></td>
+                <td width="5%"><p class="txt8">RURAL</p></td>
+                <td width="3%">
+                    <div class="box"></div>
+                </td>
+                <td width="5%"></td>
+                <td width="5%"><p class="txt8">URBANO</p></td>
+                <td width="3%">
+                    <div class="box"></div>
+                </td>
+                <td width="5%"></td>
+                <td width="5%"><p class="txt8">ESPECIAL</p></td>
+                <td width="3%">
+                    <div class="box">X</div>
+                </td>
+                <td width="1%"></td>
+            </tr>
+        </table>
+
+         <table class="tbBlack">
+        <tr>
+          <td width="30%" class="tbBlack" style="padding: 0;">
+            <p class="txt8 border">LOCALIZACION DEL PERIDO</p>
+            <table class="tbBlack bbBlack">
+              <tr>
+                <td width="15%"><p class="txt6">Provincia</p></td>
+                <td width="35%"><p class="txt6"><%= @especial.provincia %></p></td>
+                <td width="15%"><p class="txt6">Distrito</p></td>
+                <td width="35%"><p class="txt6"><%= @especial.distrito %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="24%"><p class="txt6">Corregimiento</p></td>
+                <td width="41%"><p class="txt6"><%= @especial.corregimiento %></p></td>
+                <td width="15%"><p class="txt6">Ejido</p></td>
+                <td width="20%"><p class="txt6"><%= @especial.ejido %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="50%"><p class="txt6">Lugar Pobisdo/Urbanizaclon/Barriada</p></td>
+                <td width="50%"><p class="txt6"><%= @especial.lugar %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="50%"><p class="txt6">Calle</p></td>
+                <td width="50%"><p class="txt6"><%= @especial.calle %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <% if @especial.localizacion === "Insular" %>%>
+                <td width="12%"><p class="txt6">Insular</p></td>
+                <td width="12%"><p class="txt6">X</p></td>
+                <td width="13%"><p class="txt6">Costero</p></td>
+                <td width="13%"><p class="txt6"></p></td>
+                <td width="30%"><p class="txt6 txtCenter">Tierra Firme</p></td>
+                <td width="10%"><p class="txt6"></p></td>
+                <td width="10%" class="bgGray"><p class="txt6"></p></td>
+                <% elsif @especial.localizacion === "Costero" %>%>
+                <td width="12%"><p class="txt6">Insular</p></td>
+                <td width="12%"><p class="txt6"></p></td>
+                <td width="13%"><p class="txt6">Costero</p></td>
+                <td width="13%"><p class="txt6">X</p></td>
+                <td width="30%"><p class="txt6 txtCenter">Tierra Firme</p></td>
+                <td width="10%"><p class="txt6"></p></td>
+                <td width="10%" class="bgGray"><p class="txt6"></p></td>
+                <% elsif @especial.localizacion === "Tierra Firme" %>
+                <td width="12%"><p class="txt6">Insular</p></td>
+                <td width="12%"><p class="txt6"></p></td>
+                <td width="13%"><p class="txt6">Costero</p></td>
+                <td width="13%"><p class="txt6"></p></td>
+                <td width="30%"><p class="txt6 txtCenter">Tierra Firme</p></td>
+                <td width="10%"><p class="txt6">X</p></td>
+                <td width="10%" class="bgGray"><p class="txt6"></p></td>
+                <% else %>
+                <td width="12%"><p class="txt6">Insular</p></td>
+                <td width="12%"><p class="txt6"></p></td>
+                <td width="13%"><p class="txt6">Costero</p></td>
+                <td width="13%"><p class="txt6"></p></td>
+                <td width="30%"><p class="txt6 txtCenter">Tierra Firme</p></td>
+                <td width="10%"><p class="txt6"></p></td>
+                <td width="10%" class="bgGray"><p class="txt6"></p></td>
+                <% end %>
+              </tr>
+            </table>
+            <p class="txt8 border">DATOS GENERALES DEL PREDIO</p>
+            <table class="tbBlack bbBlack">
+              <tr>
+                <td width="25%"><p class="txt6">No. Maps Catastral</p></td>
+                <td width="25%"><p class="txt6"><%= @especial.n_mapa_catastral %></p></td>
+                <td width="25%"><p class="txt6">No. Ortofoto</p></td>
+                <td width="25%"><p class="txt6"><%= @especial.n_ortofoto %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="25%"><p class="txt6">No. De Perdio</p></td>
+                <td width="25%"><p class="txt6"><%= @especial.n_predio %></p></td>
+                <td width="25%"><p class="txt6">Secuancia Perdial</p></td>
+                <td width="25%"><p class="txt6"><%= @especial.s_predial %></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="25%"><p class="txt6">Nombre del Predio</p></td>
+                <td width="75%"><p class="txt6"><%= @especial.nombre_predio %></p></td>
+              </tr>
+            </table>
+            <p class="txt8 border">ESTATUS JURIDICO DEL PREDIO</p>
+            <table class="tbBlack bbBlack">
+              <tr>
+                <td width="40%"><p class="txt6">Con Titilo de Propiedad</p></td>
+                <% if @especial.titulo_propiedad == "Si" %>
+                <td width="10%"><p class="txt6 txtCenter">[SI]</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% elsif @especial.titulo_propiedad == "No" %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">[No]</p></td>
+                <% else %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% end %>
+                <td width="20%"><p class="txt6">Con PH</p></td>
+                <% if @especial.ph == "Si" %>
+                <td width="10%"><p class="txt6 txtCenter">[SI]</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% elsif @especial.ph == "No" %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">[No]</p></td>
+                <% else %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% end %>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="40%"><p class="txt6">Concesion Administrativa</p></td>
+                <% if @especial.concesion_admin == "Si" %>
+                <td width="10%"><p class="txt6 txtCenter">[SI]</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% elsif @especial.concesion_admin == "No" %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">[No]</p></td>
+                <% else %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% end %>
+                <td width="20%"><p class="txt6">Finca PH</p></td>
+                <td width="20%"><p class="txt6 txtCenter"><%=  @especial.finca_ph%></p></td>
+              </tr>
+            </table>
+            <table class="bbBlack">
+              <tr>
+                <td width="30%"><p class="txt6">En Litigio</p></td>
+                <% if @especial.litigio == "Si" %>
+                <td width="10%"><p class="txt6 txtCenter">[SI]</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% elsif @especial.litigio == "No" %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">[No]</p></td>
+                <% else %>
+                <td width="10%"><p class="txt6 txtCenter">SI</p></td>
+                <td width="10%"><p class="txt6 txtCenter">No</p></td>
+                <% end %>
+                <td width="22%"><p class="txt6">Tipo de Litigio</p></td>
+                <td width="28%"><p class="txt6 txtCenter"><%= @especial.tipo_de_litigio %></p></td>
+              </tr>
+            </table>
+            <p class="txt8 border">DETALLE DE TITULO</p>
+            <table class="tbBlack bbBlack">
+              <tr>
+                <td class="bbBlack" width="11%"><p class="txt6">Finca</p></td>
+                <td class="bbBlack" width="28%"><p class="txt6"><%= @especial.finca %></p></td>
+                <td class="bbBlack" width="11%"><p class="txt6">Tomo</p></td>
+                <td class="bbBlack" width="10%"><p class="txt6"><%= @especial.tomo %></p></td>
+                <td class="bbBlack" width="22%"><p class="txt6">Fecha del Titulo</p></td>
+                <td class="bbBlack" width="18%"><p class="txt6"><%= @especial.fecha_del_titulo %></p></td>
+              </tr>
+              <tr>
+                <td class="bbBlack"><p class="txt6">Folio</p></td>
+                <td class="bbBlack"><p class="txt6"><%= @especial.folio %></p></td>
+                <td class="bbBlack"><p class="txt6">Rollo</p></td>
+                <td class="bbBlack"><p class="txt6"> <%= @especial.rollo %></p></td>
+                <td class="bbBlack"><p class="txt6">Fecha de Registro</p></td>
+                <td class="bbBlack"><p class="txt6"><%= @especial.fecha_de_registro %></p></td>
+              </tr>
+              <tr>
+                <td class="bbBlack"><p class="txt6">Docum</p></td>
+                <td class="bbBlack"><p class="txt6"><%= @especial.docum %></p></td>
+                <td class="bbBlack"><p class="txt6">Registro</p></td>
+                <td class="bbBlack"><p class="txt6"><%= @especial.registro %></p></td>
+                <td class="bbBlack"><p class="txt6">Superficie Inscrita</p></td>
+                <td class="bbBlack"><p class="txt6"><%= @especial.superficie_inscrita %><p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Operacion</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.operacion %></p></td>
+                  <td class="bbBlack"><p class="txt6">Asiento</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.asiento %></p></td>
+                  <td class="bbBlack"><p class="txt6">Finca Madre</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.finca_madre %></p></td>
+                </tr>
+              </table>
+              <table class="bbBlack">
+                <tr>
+                  <td width="28%" class="bbBlack"><p class="txt6">Otorgado por</p></td>
+                  <% if @especial.otorgado == "DINRA" %>
+                  <td width="11%" class="bbBlack"><p class="txt6">DINRA</p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6">X</p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6">DCBP</p></td>
+                  <td width="16%" class="bbBlack"><p class="txt6"></p></td>
+                  <% elsif @especial.otorgado == "DCBP" %>
+                  <td width="11%" class="bbBlack"><p class="txt6">DINRA</p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6"></p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6">DCBP</p></td>
+                  <td width="16%" class="bbBlack"><p class="txt6">X</p></td>
+                  <% else %>
+                  <td width="11%" class="bbBlack"><p class="txt6">DINRA</p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6"></p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6">DCBP</p></td>
+                  <td width="16%" class="bbBlack"><p class="txt6"></p></td>
+                  <% end %>
+                  <td width="23%" class="bbBlack bgGray" rowspan="2"></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Tipo de Titulo</p></td>
+                  <% if @especial.tipo_de_titulo == "Oneroso" %>
+                  <td class="bbBlack"><p class="txt6">Oneroso</p></td>
+                  <td class="bbBlack"><p class="txt6">X</p></td>
+                  <td class="bbBlack"><p class="txt6">Gratutio</p></td>
+                  <td class="bbBlack"><p class="txt6"></p></td>
+                  <% elsif @especial.tipo_de_titulo == "Gratutio" %>
+                  <td class="bbBlack"><p class="txt6">Oneroso</p></td>
+                  <td class="bbBlack"><p class="txt6"></p></td>
+                  <td class="bbBlack"><p class="txt6">Gratutio</p></td>
+                  <td class="bbBlack"><p class="txt6">X</p></td>
+                  <% else %>
+                  <td class="bbBlack"><p class="txt6">Oneroso</p></td>
+                  <td class="bbBlack"><p class="txt6"></p></td>
+                  <td class="bbBlack"><p class="txt6">Gratutio</p></td>
+                  <td class="bbBlack"><p class="txt6"></p></td>
+                  <% end %>
+                </tr>
+              </table>
+              <p class="txt8 border">DETALLE DE LA CONCESION</p>
+              <table class="tbBlack bbBlack">
+                <tr>
+                  <td width="24%"><p class="txt6">N° Resolucion</p></td>
+                  <td width="37%"><p class="txt6"><%= @especial.n_resolucion %></p></td>
+                  <td width="16%"><p class="txt6">Fecha</p></td>
+                  <td width="23%"><p class="txt6"><%= @especial.fecha_resolucion %></p></td>
+                </tr>
+              </table>
+              <p class="txt8 border">DATOS CATASTRALES</p>
+              <table class="tbBlack bbBlack">
+                <tr>
+                  <td width="24%" class="bbBlack"><p class="txt6">Tipo Resoiucion</p></td>
+                  <td width="37%" class="bbBlack"><p class="txt6"><%= @especial.tipo_resolucion %></p></td>
+                  <td width="22%" class="bbBlack"><p class="txt6">No. De Orden</p></td>
+                  <td width="17%" class="bbBlack"><p class="txt6"><%= @especial.n_de_orden %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">No. Plano</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.n_plano %></p></td>
+                  <td class="bbBlack"><p class="txt6">Globo</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.globo %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Plano de Referencia</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.plano_de_referencia %></p></td>
+                  <td class="bbBlack"><p class="txt6">Sup. Reportada</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.sup_reportada %></p></td>
+                </tr>
+              </table>
+              <p class="txt8 border">DATOS DEL PROPIETARIO</p>
+              <table class="tbBlack bbBlack">
+                <tr>
+                  <td width="24%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                  <% if @especial.tipo_de_persona == "Natural" %>
+                  <td width="12%" class="bbBlack"><p class="txt6">Natural</p></td>
+                  <td width="13%" class="bbBlack"><p class="txt6">X</p></td>
+                  <td width="12%" class="bbBlack"><p class="txt6">Juridica</p></td>
+                  <td width="17%" class="bbBlack"><p class="txt6"></p></td>
+                  <% elsif @especial.tipo_de_persona == "Juridica" %>
+                  <td width="12%" class="bbBlack"><p class="txt6">Natural</p></td>
+                  <td width="13%" class="bbBlack"><p class="txt6"></p></td>
+                  <td width="12%" class="bbBlack"><p class="txt6">Juridica</p></td>
+                  <td width="17%" class="bbBlack"><p class="txt6">X</p></td>
+                  <% else %>
+                  <td width="12%" class="bbBlack"><p class="txt6">Natural</p></td>
+                  <td width="13%" class="bbBlack"><p class="txt6"></p></td>
+                  <td width="12%" class="bbBlack"><p class="txt6">Juridica</p></td>
+                  <td width="17%" class="bbBlack"><p class="txt6"></p></td>
+                  <% end %>
+                  <td width="11%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                  <td width="11%" class="bbBlack"><p class="txt6"><%= @especial.sexo %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.cedula %></p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6">No. Dependiente</p></td>
+                  <td class="bbBlack"><p class="txt6"><%= @especial.n_dependientes %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Nacionalidad</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.nacionalidad %></p></td>
+                  <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.ocupacion %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.primer_nombre %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Segunde Nombre</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.segundo_nombre %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.primer_apellido %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.segundo_apellido %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.nombre_casada %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.nombre_usual %></p></td>
+                  <td class="bbBlack"><p class="txt6">Apellido Usual</p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.apellido_usual %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Organizacion</p></td>
+                  <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.organizacion %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Fecha Nacimiento</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.fecha_de_nacimiento %></p></td>
+                  <td class="bbBlack"><p class="txt6">Telefono</p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.telefono %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Direccion/Residencia</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.dirreccion %></p></td>
+                  <td class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.estado_civil %></p></td>
+                </tr>
+                <tr>
+                  <td class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                  <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.fecha_de_ocupacion %></p></td>
+                  <td class="bbBlack"><p class="txt6">Apartado</p></td>
+                  <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.apartado %></p></td>
+                </tr>
+              </table>
+            </td>
+                <td width="40%" valign="top" style="padding: 0;">
+                    <p class="txt8 border  bbBlack txtBold">URBANO</p>
+
+                    <p class="txt8 border">LIMITACIONES NATURALES DEL PREDIO</p>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="27%" style="height: 25px;"><p class="txt6 txtCenter">Incliacion o Pendiente</p>
+                            </td>
+                            <td width="5%"><p class="txt8 txtCenter">A</p></td>
+                            <td width="11%"><p class="txt6 txtCenter">Plano<br>-10%</p></td>
+                            <td width="5%"><p class="txt8 txtCenter">B</p></td>
+                            <td width="11%"><p class="txt6 txtCenter">Semi Plano <br>10%-30%</p></td>
+                            <td width="5%"><p class="txt8 txtCenter">C</p></td>
+                            <td width="11%"><p class="txt6 txtCenter">Inclinado<br>30%-60%</p></td>
+                            <td width="5%"><p class="txt8 txtCenter">D</p></td>
+                            <td width="20%"><p class="txt6 txtCenter">Muy Inclinado <br>+60%</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack" style="height: 25px;"><p class="txt6 txtCenter">Aprovachamiento</p></td>
+                            <td class="tbBlack"><p class="txt8 txtCenter">A</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Mas de <br>75%</p></td>
+                            <td class="tbBlack"><p class="txt8 txtCenter">B</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Entre <br>50%-75%</p></td>
+                            <td class="tbBlack"><p class="txt8 txtCenter">C</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Entre <br>20%-50%</p></td>
+                            <td class="tbBlack"><p class="txt8 txtCenter">D</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Menos de <br>25%</p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class="bbBlack" width="19%" rowspan="2"><p class="txt6 txtBold">Uso de la Tierra an el
+                                predio</p></td>
+                            <td class="bbBlack" width="8%"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="11%"><p class="txt6 txtRight">Comerical</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="11%"><p class="txt6 txtRight">Industrial</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="11%"><p class="txt6 txtRight">Turistico</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6 txtRight">Edicacional</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cornunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">UsoPublico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Otros usos</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6 txtBold">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Concreto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6 txtRight">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">DATOS GENERALES DE LA MANZANA</p>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="27%"><p class="txt6">Numero De Manzana</p></td>
+                            <td width="73%"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table class="bbBlack">
+                        <tr>
+                            <td width="42%"><p class="txt6 txtBold">Uso de la Tierra en la manzana</p></td>
+                            <td width="58%"><p class="txt6 txtBold">Mejoras de la Tierra</p></td>
+                        </tr>
+                    </table>
+                    <table class="bbBlack">
+                        <tr>
+                            <td class="bbBlack" width="17%" rowspan="2"><p class="txt6 txtCenter">Residencial</p></td>
+                            <td class="bbBlack" width="7%" rowspan="2"><p class="txt6 txtCenter"></p></td>
+                            <td class="bbBlack" width="12%" rowspan="2"><p class="txt6 txtCenter">Educacional</p></td>
+                            <td class="bbBlack" width="6%" rowspan="2"><p class="txt6 txtCenter"></p></td>
+                            <td class="bbBlack" width="17%"><p class="txt6">Acrea</p></td>
+                            <td class="bbBlack" width="8%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="28%"><p class="txt6">Cordon</p></td>
+                            <td class="bbBlack" width="5%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Acueducto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tuberia de Gas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6 txtCenter">Comercial</p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6"></p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6 txtCenter">Industrial</p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Alcanlaniado</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Telefono</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Acceso a Luz</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tv Cable</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6 txtCenter">Recreacion</p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6"></p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6 txtCenter">Otros Usos</p></td>
+                            <td class="bbBlack" rowspan="2"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Cobertura Celular</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Coberture Satelital</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">Tipos/material de la Calle</p>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="17%"><p class="txt6 txtCenter">Concreto</p></td>
+                            <td width="7%"><p class="txt6 txtCenter"></p></td>
+                            <td width="18%"><p class="txt6 txtCenter">Asfalto</p></td>
+                            <td width="7%"><p class="txt6 txtCenter"></p></td>
+                            <td width="19%"><p class="txt6 txtCenter">Grava</p></td>
+                            <td width="7%"><p class="txt6 txtCenter"></p></td>
+                            <td width="19%"><p class="txt6 txtCenter">Vereda</p></td>
+                            <td width="6%"><p class="txt6 txtCenter"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Tosca</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter"></p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Tierra</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter"></p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Ladrillo</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter"></p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6 txtCenter"></p></td>
+                        </tr>
+                    </table>
+                     <p class="txt8 border bbBlack">DESCRIPCION DE LAS MEJORAS (en areas URBANAS o ESPECIALES)</p>
+                    <p class="txt8 border">Usos y Tipos</p>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="17%" rowspan="2"><p class="txt6">Uso</p></td>
+                            <td width="12%"><p class="txt6">Residencial</p></td>
+                            <td width="4%"><p class="txt6"><% if @especial.uso_recidencial == true %>X <% end %></p></td>
+                            <td width="12%"><p class="txt6">Comercial</p></td>
+                            <td width="4%"><p class="txt6"><% if @especial.uso_comercial == true %>X <% end %></p></td>
+                            <td width="11%"><p class="txt6">Industrial</p></td>
+                            <td width="4%"><p class="txt6"><% if @especial.uso_industrial == true %>X <% end %></p></td>
+                            <td width="18%"><p class="txt6">Educacional</p></td>
+                            <td width="5%"><p class="txt6"><% if @especial.uso_educacioal == true %>X <% end %></p></td>
+                            <td width="8%"><p class="txt6">Recreo</p></td>
+                            <td width="4%"><p class="txt6"><% if @especial.uso_recreacional == true %>X <% end %></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.uso_tuiristico == true %>X <% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="7"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Residencial Tipo</p></td>
+                            <% if @especial.tipo_resindencial == "Unifamiliar" %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_resindencial == "Duplex" %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_resindencial == "Triplex" %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_resindencial == "Apartemento" %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_resindencial == "Comuna" %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <% else %>
+                            <td class="tbBlack"><p class="txt6">Unifamiliar</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Duplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Triplex</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Apartemento</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Comuna</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% end %>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">Materiales</p>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="17%"><p class="txt6">Paredes</p></td>
+                            <% if @especial.paredes == "Concreto" %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6">X</p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6"></p></td>
+                            <% elsif @especial.paredes == "Madera" %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6">X</p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6"></p></td>
+                            <% elsif @especial.paredes == "Ladrillo" %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6">X</p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6"></p></td>
+                            <% elsif @especial.paredes == "Bloque" %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6">X</p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6"></p></td>
+                            <% elsif @especial.paredes == "Otro" %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6">X</p></td>
+                            <% else %>
+                            <td width="12%"><p class="txt6">Concreto</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="12%"><p class="txt6">Madera</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Ladrillo</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="11%"><p class="txt6">Bloque</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="8%"><p class="txt6">Otros</p></td>
+                            <td width="12%"><p class="txt6">X</p></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <% if @especial.estructura_techo == "Concreto"  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.estructura_techo == "Madera"  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.estructura_techo == "Zinc"  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.estructura_techo == "Acero"  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.estructura_techo == "Otro"  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% else  %>
+                            <td class="tbBlack"><p class="txt6">Estructura Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Acero</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                          <% if @especial.cubierta_techo = "Concreto" %>
+                            <td class="tbBlack"><p class="txt6">Cubierta Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Asbesto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Tejas</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.cubierta_techo = "Asbesto" %>
+                            <td class="tbBlack"><p class="txt6">Cubierta Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Asbesto</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Tejas</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.cubierta_techo = "Zinc" %>
+                            <td class="tbBlack"><p class="txt6">Cubierta Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Asbesto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Tejas</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.cubierta_techo = "Tejas" %>
+                            <td class="tbBlack"><p class="txt6">Cubierta Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Asbesto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Tejas</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.cubierta_techo = "Otro" %>
+                            <td class="tbBlack"><p class="txt6">Cubierta Techo</p></td>
+                            <td class="tbBlack"><p class="txt6">Concreto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Asbesto</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Zinc</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Tejas</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack" rowspan="2"><p class="txt6">Pisos</p></td>
+                            <td class="tbBlack"><p class="txt6">Cemento</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_cemento == true %>X<% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Baldosas</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_baldosa == true %>X<% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Granito</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_granito == true %>X<% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Ceramica</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_ceramica == true %>X<% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Madera</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_madera == true %>X<% end %></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_tierra == true %>X<% end %></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack"><p class="txt6"><% if @especial.piso_otro == true %>X<% end %></p></td>
+                            <td class="tbBlack" colspan="6"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">Plomeria</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="17%"><p class="txt6">Agua Solamente</p></td>
+                            <td width="32%"><p class="txt6"><%= @especial.solo_agua %></p></td>
+                            <td width="26%"><p class="txt6">No. De Diseminados</p></td>
+                            <td width="24%"><p class="txt6"><%= @especial.n_diseminados %></p></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="37%"><p class="txt6">No. de Servicios de dos artefactos</p></td>
+                            <td width="12%"><p class="txt6"><%= @especial.n_servicio2 %></p></td>
+                            <td width="39%"><p class="txt6">No. de Servicios de dos artefactos</p></td>
+                            <td width="11%"><p class="txt6"><%= @especial.n_servicio3 %></p></td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">Electricidad</p>
+                    <table class="tbBlack bbBlack">
+                      <% if @especial.electricidad == "Ninguna" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6">X</p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.electricidad == "110 Voltios" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6">X</p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.electricidad == "220 Voltios" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6">X</p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                          <% elsif @especial.electricidad == "Mayor" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                           <% elsif @especial.electricidad == "Otro" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                           <% elsif @especial.electricidad == "Paneles" %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6">X</p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                           <% else %>
+                        <tr>
+                            <td width="15%"><p class="txt6">Ninguna</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">110 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="15%"><p class="txt6">220 Voltios</p></td>
+                            <td width="7%"><p class="txt6"></p></td>
+                            <td width="17%"><p class="txt6">Mayor</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Paneles</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Otros</p></td>
+                            <td class="tbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                      <% end %>
+                    </table>
+                    <p class="txt8 border">Otras Mejoras</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="100%" class="bbBlack"><p class="txt6"><%= @especial.m_otro2 %></p></td>
+                        </tr>
+                        <tr>
+                            <td width="100%" class="bbBlack"><p class="txt6">.</p></td>
+                        </tr>
+                        <tr>
+                            <td width="100%" class="bbBlack"><p class="txt6">.</p></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="30%" valign="top" style="padding: 0;">
+                    <p class="txt8 border  bbBlack txtBold">RURAL</p>
+
+                    <p class="txt8 border">CARACTERISITCAS DEL PREDIO</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Piana</p></td>
+                            <td width="10%"><p class="txt6"></p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td class="bbBlack" width="30%"><p class="txt6">Servicios Publicos</p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6">Agua</p></td>
+                            <td class="bbBlack" width="10%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="14%"><p class="txt6">Luz</p></td>
+                            <td class="bbBlack" width="7%"><p class="txt6"></p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack" width="9%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Tipo de Construccion</p></td>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Del Propietario</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">De otro</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">UsoPublico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros Usos</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Hidrografia</p></td>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra/Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" colspan="3"><p class="txt6">Servidumbre de Acceso a otros predios</p>
+                            </td>
+                            <td class="bbBlack"><p class="txt6 txtCenter">SI</p></td>
+                            <td class="bbBlack"><p class="txt6 txtcenter">NO</p></td>
+                            <td class="bbBlack bgGray" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Servidumbre para</p>
+                            </td>
+                            <td class="bbBlack" colspan="6"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border txtbold bbBlack" style="padding: 1px;">ESPECIAL</p>
+
+                    <p class="txt8 border" style="padding: 1px;">CARACTERISITICAS GENERALES DEL PREDIO</p>
+                    <table class="tbBlack">
+                      <% if @especial.topografia == "Plano" %>
+
+
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Plana</p></td>
+                            <td width="10%"><p class="txt6">X</p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox.</p></td>
+                            <td class="tbBlack"><p class="txt6"><%= @especial.topografia %></p></td>
+                        </tr>
+                        <% elsif @especial.topografia == "Quebrada" %>
+
+
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Plana</p></td>
+                            <td width="10%"><p class="txt6"></p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox.</p></td>
+                            <td class="tbBlack"><p class="txt6"><%= @especial.topografia %></p></td>
+                        </tr>
+                        <% elsif @especial.topografia == "Quebrada" %>
+
+
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Plana</p></td>
+                            <td width="10%"><p class="txt6"></p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox.</p></td>
+                            <td class="tbBlack"><p class="txt6"><%= @especial.topografia %></p></td>
+                        </tr>
+                         <% elsif @especial.topografia == "Ondulada" %>
+
+
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Plana</p></td>
+                            <td width="10%"><p class="txt6"></p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox.</p></td>
+                            <td class="tbBlack"><p class="txt6"><%= @especial.topografia %></p></td>
+                        </tr>
+                        <% else %>
+
+
+                        <tr>
+                            <td width="30%" rowspan="2"><p class="txt6">Topografia</p></td>
+                            <td width="15%"><p class="txt6">Plana</p></td>
+                            <td width="10%"><p class="txt6"></p></td>
+                            <td width="21%"><p class="txt6">Quebrada</p></td>
+                            <td width="24%"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tbBlack"><p class="txt6">Ondulada</p></td>
+                            <td class="tbBlack"><p class="txt6"></p></td>
+                            <td class="tbBlack"><p class="txt6">Pendiende Aprox.</p></td>
+                            <td class="tbBlack"><p class="txt6"><%= @especial.topografia %></p></td>
+                        </tr>
+                        <% end %>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td class="bbBlack" width="30%"><p class="txt6">Servicios Publicos</p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6">Agua</p></td>
+                            <td class="bbBlack" width="10%"><p class="txt6"><% if @especial.agua == true %> X <% end %></p></td>
+                            <td class="bbBlack" width="14%"><p class="txt6">Luz</p></td>
+                            <td class="bbBlack" width="7%"><p class="txt6"><% if @especial.luz == true %> X <% end %><</p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack" width="9%"><p class="txt6"><% if @especial.x_none == true %> X <% end %><</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Tipo de Construccion</p></td>
+                            <% if @especial.tipo_de_construccion == "Permanente" %>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_de_construccion == "Temporal" %>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.tipo_de_construccion == "Ninguna" %>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <% else%>
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguno</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <% end %>
+                        </tr>
+                        <% if @especial.cercas_existentes == "Vivas" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.cercas_existentes == "Muertas" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                           <% elsif @especial.cercas_existentes == "Ambas" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                          <% elsif @especial.cercas_existentes == "Ninguna" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                           <% else %>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Cercas Existentes</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ambas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack bgGray" rowspan="2" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Muertas</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% end %>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Hidrografia</p></td>
+
+                            <% if @especial.hidrigrafia == "Permanente"%>
+
+
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <% elsif @especial.hidrigrafia == "Temporal"%>
+
+
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                           <% elsif @especial.hidrigrafia == "Ninguna"%>
+
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <% else %>
+
+                            <td class="bbBlack"><p class="txt6">Permanente</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Temporal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ninguna</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" colspan="3"><p class="txt6">Servidumbre de Acceso a otros predios</p>
+                            </td>
+                            <% if @especial.servidumbre_de_acceso == "Si" %>
+                            <td class="bbBlack"><p class="txt6 txtCenter">[SI]</p></td>
+                            <td class="bbBlack"><p class="txt6 txtcenter">NO</p></td>
+                            <% elsif @especial.servidumbre_de_acceso == "No" %>
+                            <td class="bbBlack"><p class="txt6 txtCenter">SI</p></td>
+                            <td class="bbBlack"><p class="txt6 txtcenter">[NO]</p></td>
+                            <% else %>
+                            <td class="bbBlack"><p class="txt6 txtCenter">SI</p></td>
+                            <td class="bbBlack"><p class="txt6 txtcenter">NO</p></td>
+                            <% end %>
+                            <td class="bbBlack bgGray" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Servidumbre para</p>
+                            </td>
+                            <td class="bbBlack" colspan="6"><p class="txt6"><%= @especial.servidumbre %></p></td>
+                        </tr>
+                        <% if @especial.uso_de_tierra == "Agricola" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.uso_de_tierra == "Vivienda" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.uso_de_tierra == "Uso Publico" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.uso_de_tierra == "Ganaderia" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.uso_de_tierra == "Comunal" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.uso_de_tierra == "Comunal" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.uso_de_tierra == "Turistico" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.uso_de_tierra == "Comercial" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.uso_de_tierra == "Industrial" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.uso_de_tierra == "Otro" %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <% else %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Uso de la Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">Agricola</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Vivienda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Uso Publico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ganadera</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Comunal</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Turistico</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Comercial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Industrial</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% end %>
+                        <% if @especial.vias_de_acceso == "Concreto"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.vias_de_acceso == "Asfalto"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.vias_de_acceso == "Grava"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.vias_de_acceso == "Piedra"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% elsif @especial.vias_de_acceso == "Tierra"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                          <% elsif @especial.vias_de_acceso == "Ladrillo"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.vias_de_acceso == "Vereda"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.vias_de_acceso == "Servidumbre"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                         <% elsif @especial.vias_de_acceso == " Otros"%>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6">X</p></td>
+                        </tr>
+                         <% else %>
+                        <tr>
+                            <td class="bbBlack" rowspan="3"><p class="txt6">Vias de Acceso</p></td>
+                            <td class="bbBlack"><p class="txt6">Concerto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Asfalto</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Grava</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Piedra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Tierra</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Ladrilo</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Vereda</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Servidumbre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <% end %>
+                    </table>
+                    <p class="txt8 border bbBlack" style="padding: 1px;">Numero De Manzana</p>
+
+                    <p class="txt8 border" style="padding: 1px;">Mejoras de la Tierra (en la Manzana)</p>
+
+                    <table class="tbBlack">
+                        <tr>
+                            <td class="bbBlack" width="30%"><p class="txt6">Acera</p></td>
+                            <td class="bbBlack" width="15%"><p class="txt6"><% if  @especial.acera = true %>
+                              X
+                            <% end %></p></td>
+                            <td class="bbBlack" width="24%"><p class="txt6">Cordon</p></td>
+                            <td class="bbBlack" width="7%"><p class="txt6"><% if  @especial.m_cordon = true %>
+                              X
+                            <% end %></p></td>
+                            <td class="bbBlack bgGray" width="24%" rowspan="6"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Acueducto</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.acueductos = true %>
+                              X
+                            <% end %></p></td>
+                            <td class="bbBlack"><p class="txt6">Tuberia de Gas</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.tuberia_gas = true %>
+                              X
+                            <% end %></p></td></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Alcantarillado</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.alcantarillado = true %>
+                              X
+                            <% end %></p></td></p></td>
+                            <td class="bbBlack"><p class="txt6">Telefono</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.telefono_m = true %>
+                              X
+                            <% end %></p></td></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Acceso a Luz</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.m_luz = true %>
+                              X
+                            <% end %></p></td></p></td>
+                            <td class="bbBlack"><p class="txt6">TV Cable</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.tv = true %>
+                              X
+                            <% end %></p></td></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cobertura Celular</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.senal_celular = true %>
+                              X
+                            <% end %></p></td></p></td>
+                            <td class="bbBlack"><p class="txt6">Cobertura Satelital</p></td>
+                            <td class="bbBlack"><p class="txt6"><% if  @especial.sena_satelital = true %>
+                              X
+                            <% end %></p></td></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Otros</p></td>
+                            <td class="bbBlack" colspan="3"><p class="txt6"><%= @especial.m_otro %></p></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="page">
+    <div class="pagecontent">
+        <p class="txt10 txtCenter">SISTEMA INTEGRADO DE INFORMATION CATASTRO-REGISTRO</p>
+
+        <p class="txt10 txtBold txtCenter">FICHA CATASTRAL</p>
+
+        <table class="tbBlack bbBlack" style="margin-top: 30px;">
+            <tr>
+                <td width="33%" valign="top" style="padding: 0;">
+                    <p class="txt8 border">DATOS DE COLINDANTES</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="6%" class="bbBlack" rowspan="2">
+                                <p class="txt6">Cardi-<br>nalidad</p>
+                            </td>
+                            <td width="9%" class="bbBlack">
+                                <p class="txt6">Nombre</p>
+                            </td>
+                            <td width="85%" class="bbBlack" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                            <td class="bbBlack" width="50%"></td>
+                            <td class="bbBlack" width="35%" rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"></td>
+                            <td class="bbBlack"><p class="txt6">Finca</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"></td>
+                        </tr>
+                    </table>
+                    <div class="bgGray border" style="height: 15px;"></div>
+                    <table class="tbBlack bbBlack">
+                        <tr>
+                            <td width="50%">
+                                <p class="txt6">El predio tiene mas colindantes</p>
+                            </td>
+                            <td width="5%">
+                                <p class="txt6 txtCenter">SI</p>
+                            </td>
+                            <td width="10%">
+                                <p class="txt6"></p>
+                            </td>
+                            <td width="6%">
+                                <p class="txt6 txtCenter">NO</p>
+                            </td>
+                            <td width="6%">
+                                <p class="txt6"></p>
+                            </td>
+                            <td width="23%" class="bgGray">
+                                <p class="txt6"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="txt8 border">OBSERVACIONES</p>
+                </td>
+                <td width="40%" valign="top" style="padding: 0;">
+                    <p class="txt8 border">OTROS PROPIETARIOS</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                            <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 24px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                            <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
+                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                            <td rowspan="3"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 25px;"><p class="txt6">Firma</p></td>
+                            <td colspan="4"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="27%" valign="top" style="padding: 0;" rowspan="2">
+                    <p class="txt8 border">DATOS DEL LEVANTAMIENTO</p>
+                    <table class="tbBlack">
+                        <tr>
+                            <td width="38%" class="bbBlack" rowspan="2"><p class="txt6">Empadronador(a)</p></td>
+                            <td width="15%" class="bbBlack"><p class="txt6">Nombre</p></td>
+                            <td width="47%" class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Inspector(a)</p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Supervisor(a)</p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" rowspan="2"><p class="txt6">Captador(a)</p></td>
+                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Firma</p></td>
+                            <td class="bbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Empresa</p></td>
+                            <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack"><p class="txt6">Metodologia </p></td>
+                            <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table class="bbBlack">
+                        <tr>
+                            <td width="34%"><p class="txt6">Fecha del Levantamiento</p></td>
+                            <td width="4%"><p class="txt6"></p></td>
+                            <td width="17%"><p class="txt6"></p></td>
+                            <td width="34%"><p class="txt6">Hora del Levantamiento</p></td>
+                            <td width="11%"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tbBlack"><p class="txt6">Equipo utilizado</p></td>
+                            <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tbBlack"><p class="txt6">Verificado por</p></td>
+                            <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="83%" class="bbBlack" style="height: 41px;" valign="top"><p class="txt6">Firma del Propietario/Ocupante</p></td>
+                            <td width="17%" class="bbBlack" rowspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" style="height: 26px;" valign="top"><p class="txt6">Cedula del Propietario/Ocupante</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack" valign="top" colspan="2"><p class="txt8">CROQUIS DEL PREDIO <span style="float: right;">Un cuadro = ____ mts.</span> </p></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                            <td width="5%" class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                        <tr>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                            <td class="bbBlack box2"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="23%" style="height: 40px;"><p class="txt6">Funcionario (a)</p></td>
+                            <td width="15%"><p class="txt6">Nombre</p></td>
+                            <td width="62%"></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 40px;"><p class="txt6">Sustanciador (a)</p></td>
+                            <td class="tbBlack"><p class="txt6">Firma</p></td>
+                            <td class="tbBlack"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tbBlack" style="padding: 0;">
+                    <table>
+                        <tr>
+                            <td width="100%" class="bbBlack" style="height: 24px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="100%" class="bbBlack" style="height: 24px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="100%" class="bbBlack" style="height: 24px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="100%" class="bbBlack" style="height: 24px;"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

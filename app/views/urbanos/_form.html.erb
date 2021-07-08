@@ -1,4 +1,5 @@
-<%= simple_form_for(@rural) do |f| %>
+
+<%= simple_form_for(@urbano) do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -42,7 +43,6 @@
     <%= f.input :n_ortofoto, :label => "No. Ortofoto" %>
     <%= f.input :n_predio, :label => "No. de Predio" %>
     <%= f.input :nombre_predio, :label => "Nombre del Predio" %>
-    <%= f.input :s_predial, :label => "Secuencia Predial" %>
     <% end %>
   </div>
   <div class="row">
@@ -129,70 +129,149 @@
     <%= f.input :apartado, :label => "Apartado"  %>
   </div>
   <div class="row">
-    <div class="col-md-6"><h4>Caracteristicas del predio</h4></div>
+    <div class="col-md-6"><h4>Limitaciones naturales del Predio</h4></div>
     <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo6" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
   </div>
   <hr>
   <div id="demo6" class="collapse">
-    <%= f.input :topografia, :label => "Topografia", collection: [ "Plano", "Quebrada","Ondulada", "Pendiente Aprox" ]  %>
-    <%= f.input :pendiente_ap, :label => "Pediente Aprox." %>
-    <p>Servicios Publicos</p>
+    <%= f.input :inclinacion, :label => "Inclinación o Pendiente", collection: [ "A) Plano: 10%", "B) Semi Plano: 10% - 30%", "C) Inclinado: 30% - 60%", "D) Muy Inclinado: + 60%"]  %>
+    <%= f.input :aprovechamiento, :label => "Aprovechamiento", collection: [ "A) Mas de 75%", "B) Entre 50% - 75%", "C) Entre 25% - 50%", "D) Menos 25%"]  %>
+    <p>Uso de la Tierra en el predio</p>
     <div class="row">
-      <div class="col-md-4"><%= f.input :agua, :label => "Agua" %></div>
-      <div class="col-md-4"><%= f.input :luz, :label => "Luz" %></div>
-      <div class="col-md-4"><%= f.input :x_none, :label => "Ninguna" %></div>
+     <div class="col-md-3">
+      <%= f.input "vivienda_t", :label => "Vivienda" %> <br>
+      <%= f.input "comercial_t", :label => "Comercial" %> <br>
+      <%= f.input "industrial_t", :label => "Industrial" %>
     </div>
-    <%= f.input :tipo_de_construccion, :label => "Tipo de Construcción", collection: [ "Permanente", "Temporal","Ninguna"] %>
-    <%= f.input :del_propietario, :label => "Propietario", collection: [ "Si", "No"] %>
-    <%= f.input :de_otro, :label => "Otro propietario"%>
-    <%= f.input :uso_de_tierra, :label => "Uso de la Tierra", collection: [ "Agricola", "Vivienda","Uso Publico", "Ganaderia", "Comunal", "Otro uso" ] %>
-    <%= f.input :cercas_existentes, :label => "Cercas Existentes", collection: [ "Vivas", "Ambas","Muertas", "Ninguna"] %>
-    <%= f.input :hidrografia, :label => "Hidrografia", collection: [ "Permanente", "Temporal", "Ninguna"] %>
-    <%= f.input :vias_de_acceso, :label => "Vias de Acceso", collection: [ "Concreto", "Asfalto", "Grava", "Piedra/Tierra", "Servidumbre", "Otros"]  %>
-    <%= f.input :servidumbre_de_acceso, :label => "Servidumbre de acceso a otros predios", collection: [ "Si", "No", ] %>
-    <%= f.input :servidumbre, :label => "Servidumbre para" %>
-  </div>
-  <div class="row">
-    <div class="col-md-6"><h4>Observaciones de Ficha</h4></div>
-    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo8" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
-  </div>
-  <hr>
-  <div id="demo8" class="collapse">
-    <%= f.input :observaciones_ficha, :label => "Observaciones"  %>
-  </div>
-  <div class="row">
-    <div class="col-md-6"><h4>Datos del Levantamiento</h4></div>
-    <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo9" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
-  </div>
-  <hr>
-  <div id="demo9" class="collapse">
-    <p>Empadronador</p>
-    <%= f.input :empadronador_nombre, :label => "Nombre"  %>
-    <%= f.input :empadronador_firma, :label => "Firma"  %>
-    <p>Inspector</p>
-    <%= f.input :inspector_nombre, :label => "Nombre"  %>
-    <%= f.input :inspector_firma, :label => "Firma"  %>
-    <p>Supervisor</p>
-    <%= f.input :supervisor_nombre, :label => "Nombre" %>
-    <%= f.input :supervisor_firma, :label => "Firma" %>
-    <p>Captador</p>
-    <%= f.input :captador_nombre, :label => "Nombre" %>
-    <%= f.input :captador_firma, :label => "Firma" %>
-    <%= f.input :empresa, :label => "Empresa" %>
-    <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
-    <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
-    <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
-    <%= f.input :equipo , :label => "Equipo" %>
-    <%= f.input :verficado, :label => "Verficado por" %>
-    <%= f.input :firma_propietario, :label => "Firma de Propietario" %>
-    <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
-    <%= f.input :funcionario_firma, :label => "Nombre de Funcionario" %>
-    <%= f.input :sustanciador_firma, :label =>"Nombre de Sustanciador"  %>
-  </div>
+    <div class="col-md-3">
+      <%= f.input "turístico_t", :label => "Turistico" %> <br>
+      <%= f.input "educacional_t", :label => "Educacional" %> <br>
+      <%= f.input "uso_publico_t", :label => "Uso Publico" %> <br>
+    </div>
+    <div class="col-md-3">
+      <%= f.input "comunal_t", :label => "Comunal" %> <br>
+      <%= f.input "agricola_t", :label => "Agricola" %> <br>
+      <%= f.input "ganadero_t", :label => "Ganadero" %> <br>
+      </div>
+      <div class="col-md-3">
+        <%= f.input "otro_t", :label => "Otro" %>
+      </div>
+      </div>
+      <%= f.input :vias_acesso, :label => "Vias de Acceso", collection: [ "Asfalto", "Concreto", "Piedra","Tierra","Otro"] %>
+
+</div>
+<div class="row">
+  <div class="col-md-6"><h4>Datos generales de la Manzana</h4></div>
+  <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo7" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+</div>
+<hr>
+<div id="demo7" class="collapse">
+  <%= f.input :n_manzana, :label => "No Manzanas" %>
+ <%= f.input :m_uso, :label => "Uso de la tierra", collection: [ "Residencial", "Educacional", "Comercial", "Industrial", "Recreacional", "Otro"] %>
+ <p>Mejoras de la tierra</p>
+ <div class="row">
+   <div class="col-md-3"><%= f.input :cera, :label => "Acera" %> <br> <%= f.input :alcantarillado, :label => "Alcantarillado" %> <br> <%= f.input :senal_celular, :label => "Señal Celular" %></div>
+   <div class="col-md-3"><%= f.input :acueductos, :label => "Acueductos" %> <br> <%= f.input :telefono_m, :label => "Telefono" %> <br> <%= f.input :sena_satelital, :label => "Señal Satelital" %></div>
+   <div class="col-md-3"><%= f.input :tuberia_gas, :label => "Tuberia de Gas" %> <br> <%= f.input :m_luz, :label => "Acceso a Luz" %></div>
+   <div class="col-md-3"><%= f.input :m_cordon, :label => "Cordon" %> <br> <%= f.input :tv, :label => "Television" %></div>
+ </div>
+ <%= f.input :m_otro, :label => "Otro" %>
+ <%= f.input :material_calle, :label => "Material Calle", collection: [ "Concreto", "Asfalto", "Grava", "Vereda", "Tosca", "Tierra", "Ladrillo", "Otro"] %>
+</div>
+
+<div class="row">
+  <div class="col-md-6"><h4>Descripción de las Mejoras</h4></div>
+  <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo8" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+</div>
+<hr>
+<div id="demo8" class="collapse">
+  <p>Uso</p>
+   <div class="row">
+     <div class="col-md-4">
+      <%= f.input "uso_recidencial", :label => "Recidencial" %> <br>
+      <%= f.input "uso_tuiristico", :label => "Turistico" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input "uso_comercial", :label => "Comercial" %> <br>
+      <%= f.input "uso_recreacional", :label => "Recreacional" %>
+    </div>
+     <div class="col-md-4">
+
+      <%= f.input "uso_educacioal", :label => "Educacional" %> <br>
+
+      <%= f.input "uso_industrial", :label => "Industrial" %>
+    </div>
+      </div>
+ <%= f.input :tipo_resindencial, :label => "Tipo Residencial", collection: [ "Unifamiliar", "Duplex", "Triplex", "Apartamento", "Comunal", "Otro"] %>
+ <%= f.input :paredes, :label => "Paredes", collection: [ "Concreto", "Madera", "Ladrillo", "Bloque", "Otro"] %>
+ <%= f.input :estructura_techo, :label => "Estructura del Techo", collection: [ "Concreto", "Madera", "Zinc", "Acero", "Otro"]  %>
+ <%= f.input :cubierta_techo, :label => "Cubierta del Techo", collection: [ "Concreto", "Asbesto", "Zinc", "Tejas", "Otro"] %>
+ <p>Piso</p>
+   <div class="row">
+     <div class="col-md-4">
+      <%= f.input "piso_cemento", :label => "Cemento" %> <br>
+      <%= f.input "piso_baldosa", :label => "Baldosas" %>
+      <%= f.input "piso_otro", :label => "Otro" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input "piso_tierra", :label => "Tierra" %> <br>
+      <%= f.input "piso_madera", :label => "Madera" %>
+    </div>
+     <div class="col-md-4">
+
+      <%= f.input "piso_granito", :label => "granito" %> <br>
+
+      <%= f.input "piso_ceramica", :label => "Ceramica" %>
+    </div>
+      </div>
+ <p>Plomeria</p>
+ <%= f.input :solo_agua, :label => "Agua solamente", collection: [ "Si", "No"] %>
+ <%= f.input :n_diseminados, :label => "No. de Diseminados" %>
+ <%= f.input :n_servicio2, :label => "No. de servicios de 2 Artefactos"  %>
+ <%= f.input :n_servicio3, :label => "No. de servicios de 3 Artefactos"  %>
+ <%= f.input :electricidad, :label => "Electricidad", collection: [ "Ninguna", "110 Voltios", "220 Voltios", "Mayor","Paneles", "Otro"] %>
+ <%= f.input :m_otro2, :label => "Otras Mejoras" %>
+</div>
+<div class="row">
+  <div class="col-md-6"><h4>Observaciones de Ficha</h4></div>
+  <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo8" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+</div>
+<hr>
+<div id="demo8" class="collapse">
+  <%= f.input :observaciones_ficha, :label => "Observaciones"  %>
+</div>
+<div class="row">
+  <div class="col-md-6"><h4>Datos del Levantamiento</h4></div>
+  <div class="col-md-6 text-right"><button type="button" class="btn" data-toggle="collapse" data-target="#demo9" style=" background-color: black; color: white; borde">Registar <i class="fas fa-pen-alt"></i></button></div>
+</div>
+<hr>
+<div id="demo9" class="collapse">
+  <p>Empadronador</p>
+  <%= f.input :empadronador_nombre, :label => "Nombre"  %>
+  <%= f.input :empadronador_firma, :label => "Firma"  %>
+  <p>Inspector</p>
+  <%= f.input :inspector_nombre, :label => "Nombre"  %>
+  <%= f.input :inspector_firma, :label => "Firma"  %>
+  <p>Supervisor</p>
+  <%= f.input :supervisor_nombre, :label => "Nombre" %>
+  <%= f.input :supervisor_firma, :label => "Firma" %>
+  <p>Captador</p>
+  <%= f.input :captador_nombre, :label => "Nombre" %>
+  <%= f.input :captador_firma, :label => "Firma" %>
+  <%= f.input :empresa, :label => "Empresa" %>
+  <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
+  <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
+  <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
+  <%= f.input :equipo , :label => "Equipo" %>
+  <%= f.input :verficado, :label => "Verficado por" %>
+  <%= f.input :firma_propietario, :label => "Firma de Propietario" %>
+  <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
+  <%= f.input :funcionario_firma, :label => "Nombre de Funcionario" %>
+  <%= f.input :sustanciador_firma, :label =>"Nombre de Sustanciador"  %>
+</div>
 </div>
 <br>
 <div class="form-actions text-center">
   <%= f.button :submit, 'Guardar', class: 'btn btn-fichapp'%>
 </div>
 <% end %>
-
