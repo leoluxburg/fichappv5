@@ -96,7 +96,7 @@
               </p>
 
               <p>
-                <strong>Operacion:</strong>
+                <strong>Operación:</strong>
                 <%= @rural.operacion %>
               </p>
 
@@ -249,7 +249,6 @@
             </div>
           </div>
           <br>
-
         </div>
         <div id="menu1" class="container tab-pane fade"><br>
           <div class="row">
@@ -369,10 +368,6 @@
                 <%= @rural.topografia %>
               </p>
               <p>
-                <strong>Topografia:</strong>
-                <%= @rural.topografia %>
-              </p>
-              <p>
                 <strong>Plano Aprox:</strong>
                 <%= @rural.pendiente_ap %>
               </p>
@@ -387,12 +382,12 @@
               </p>
 
               <p>
-                <strong>X none:</strong>
+                <strong>Ninguna:</strong>
                 <%= @rural.x_none %>
               </p>
 
               <p>
-                <strong>Tipo de construccion:</strong>
+                <strong>Tipo de construcción:</strong>
                 <%= @rural.tipo_de_construccion %>
               </p>
 
@@ -442,7 +437,7 @@
         <div id="menu3" class="container tab-pane fade"><br>
           <div class="row">
             <div class="col-md-6">
-              <h3>Colindantes</h3>
+            <h3>Colindantes</h3>
               <hr>
               <% @rural.neighbors.each do |n| %>
               <p>
@@ -457,14 +452,17 @@
                 <strong>Finca:</strong>
                 <%= n.estate %>
               </p>
+              <p>
+                <strong>Cardinalidad:</strong>
+                <%= n.cardinalidad %>
+              </p>
               <%= link_to "Eliminar",
               neighbor_path(n),
               method: :delete,
               data: { confirm: "Seguro?" } %>
-
+              <br>
+              <br>
               <% end %>
-              <br>
-              <br>
               <%= link_to 'Agregar Colindante', new_rural_neighbor_path(@rural), class: "btn btn-fichapp"%>
             </div>
           </div>
@@ -476,16 +474,76 @@
               <hr>
               <% @rural.owners.each do |n| %>
               <p>
-                <strong>Nombre:</strong>
+                <strong>Fecha de Ocupación:</strong>
+                <%= n.fecha_oc %>
+              </p>
+              <p>
+                <strong>Fecha de Nacimiento:</strong>
+                <%= n.fecha_nac %>
+              </p>
+              <p>
+                <strong>Sexo:</strong>
+                <%= n.sexo %>
+              </p>
+              <p>
+                <strong>Primer Nombre:</strong>
                 <%= n.p_nombre %>
+              </p>
+              <p>
+                <strong>Segundo Nombre:</strong>
+                <%= n.s_nombre %>
+              </p>
+              <p>
+                <strong>Primer Apellido:</strong>
+                <%= n.p_apellido %>
+              </p>
+              <p>
+                <strong>Segundo Apellido:</strong>
+                <%= n.s_apellido %>
+              </p>
+              <p>
+                <strong>Apellido de Casada:</strong>
+                <%= n.c_apellido %>
+              </p>
+              <p>
+                <strong>Nombre Usual:</strong>
+                <%= n.nombre_u %>
+              </p>
+              <p>
+                <strong>Organizacion:</strong>
+                <%= n.organizacion %>
+              </p>
+              <p>
+                <strong>Cedula/RUC:</strong>
+                <%= n.cedula %>
+              </p>
+              <p>
+                <strong>Estado Civil:</strong>
+                <%= n.estado_c %>
+              </p>
+              <p>
+                <strong>Telefono:</strong>
+                <%= n.telefono %>
+              </p>
+              <p>
+                <strong>Apartado:</strong>
+                <%= n.apartado %>
+              </p>
+              <p>
+                <strong>Ocupación:</strong>
+                <%= n.ocupacion %>
+              </p>
+              <p>
+                <strong>Dirrección:</strong>
+                <%= n.dirreccion %>
               </p>
               <%= link_to "Eliminar",
               owner_path(n),
               method: :delete,
               data: { confirm: "Seguro?" } %>
+              <br>
+              <br>
               <% end %>
-              <br>
-              <br>
               <%= link_to 'Agregar Propietario', new_rural_owner_path(@rural), class: "btn btn-fichapp"%>
             </div>
           </div>
@@ -496,43 +554,22 @@
               <h3>Datos de Levantamiento</h3>
               <hr>
               <p>
-                <strong>Empadronador nombre:</strong>
+                <strong>Empadronador:</strong>
                 <%= @rural.empadronador_nombre %>
               </p>
-
               <p>
-                <strong>Empadronador firma:</strong>
-                <%= @rural.empadronador_firma %>
-              </p>
-
-              <p>
-                <strong>Inspector nombre:</strong>
+                <strong>Inspector:</strong>
                 <%= @rural.inspector_nombre %>
               </p>
 
               <p>
-                <strong>Inspector firma:</strong>
-                <%= @rural.inspector_firma %>
-              </p>
-
-              <p>
-                <strong>Supervisor nombre:</strong>
+                <strong>Supervisor:</strong>
                 <%= @rural.supervisor_nombre %>
               </p>
 
               <p>
-                <strong>Supervisor firma:</strong>
-                <%= @rural.supervisor_firma %>
-              </p>
-
-              <p>
-                <strong>Captador nombre:</strong>
+                <strong>Captador:</strong>
                 <%= @rural.captador_nombre %>
-              </p>
-
-              <p>
-                <strong>Captador firma:</strong>
-                <%= @rural.captador_firma %>
               </p>
 
               <p>
@@ -566,23 +603,8 @@
               </p>
 
               <p>
-                <strong>Firma propietario:</strong>
-                <%= @rural.firma_propietario %>
-              </p>
-
-              <p>
                 <strong>Cedula propetario:</strong>
                 <%= @rural.cedula_propetario %>
-              </p>
-
-              <p>
-                <strong>Funcionario firma:</strong>
-                <%= @rural.funcionario_firma %>
-              </p>
-
-              <p>
-                <strong>Sustanciador firma:</strong>
-                <%= @rural.sustanciador_firma %>
               </p>
             </div>
           </div>
@@ -590,6 +612,7 @@
       </div>
       <hr>
       <p>Creado por: <%= @rural.user.name  %> <%= @rural.user.last_name  %></p>
+       <%= link_to 'Editar', edit_rural_path(@rural) %>
     </div>
   </div>
 

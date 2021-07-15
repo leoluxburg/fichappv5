@@ -22,7 +22,7 @@
         <tbody>
           <% @rurals.each do |rural| %>
           <tr>
-            <th scope="row">1<%= rural.n_predio %></th>
+            <th scope="row"><%= rural.n_predio %></th>
             <td style="border-color: white;"><%= link_to 'Ver', rural %></td>
             <td style="border-color: white;"><%= link_to 'Editar', edit_rural_path(rural) %></td>
             <td style="border-color: white;"><%= link_to 'Eliminar', rural, method: :delete, data: { confirm: 'Are you sure?' } %></td>

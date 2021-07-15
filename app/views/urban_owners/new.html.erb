@@ -6,10 +6,10 @@
       <div class="text-center">
         <h2 class="text-center">Agregar Propietario</h2>
       </div>
-      <%= simple_form_for [@rural, @owner] do |f|%>
+      <%= simple_form_for [@urbano, @owner] do |f|%>
       <%= f.input :fecha_oc, :label => "Fecha de Ocupacion" %>
       <%= f.input :fecha_nac, :label => "Fecha de Nacimiento" %>
-      <%= f.input :sexo, :label => "Sexo",collection: [ "Masculino", "Femenina", "Otro"] %>
+      <%= f.input :sexo, :label => "Sexo",collection: [ "Masculino", "Femenino", "Otro" ] %>
       <%= f.input :p_nombre, :label => "Primer Nombre" %>
       <%= f.input :s_nombre, :label => "Segundo Nomnbre" %>
       <%= f.input :p_apellido, :label => "Apellido" %>

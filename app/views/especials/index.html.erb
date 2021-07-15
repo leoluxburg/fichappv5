@@ -22,7 +22,7 @@
         <tbody>
           <% @especials.each do |especial| %>
           <tr>
-            <th scope="row">1<%= especial.n_predio %></th>
+            <th scope="row"><%= especial.n_predio %></th>
             <td style="border-color: white;"><%= link_to 'Ver', especial %></td>
             <td style="border-color: white;"><%= link_to 'Editar', edit_especial_path(especial) %></td>
             <td style="border-color: white;"><%= link_to 'Eliminar', especial, method: :delete, data: { confirm: 'Are you sure?' } %></td>

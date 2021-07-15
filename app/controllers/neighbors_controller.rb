@@ -23,7 +23,7 @@ class NeighborsController < ApplicationController
   private
 
   def neighbor_params
-    params.require(:neighbor).permit(:name, :id_number, :estate)
+    params.require(:neighbor).permit(:name, :id_number, :estate, :cardinalidad)
   end
 
 end

@@ -172,7 +172,7 @@
                 <td width="2%"></td>
                 <td width="13%"><p class="txt8">CEDULA CATASTRAL</p></td>
                 <td width="20%">
-                    <div class="box"></div>
+                    <div class="box"><%= @especial.id_catastral %></div>
                 </td>
                 <td width="30%"></td>
                 <td width="5%"><p class="txt8">RURAL</p></td>
@@ -2158,456 +2158,609 @@
 </div>
 
 
-<div class="page">
-    <div class="pagecontent">
-        <p class="txt10 txtCenter">SISTEMA INTEGRADO DE INFORMATION CATASTRO-REGISTRO</p>
+ <div class="page">
+        <div class="pagecontent">
+          <p class="txt10 txtCenter">SISTEMA INTEGRADO DE INFORMATION CATASTRO-REGISTRO</p>
 
-        <p class="txt10 txtBold txtCenter">FICHA CATASTRAL</p>
+          <p class="txt10 txtBold txtCenter">FICHA CATASTRAL</p>
 
-        <table class="tbBlack bbBlack" style="margin-top: 30px;">
+          <table class="tbBlack bbBlack" style="margin-top: 30px;">
             <tr>
-                <td width="33%" valign="top" style="padding: 0;">
-                    <p class="txt8 border">DATOS DE COLINDANTES</p>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="6%" class="bbBlack" rowspan="2">
-                                <p class="txt6">Cardi-<br>nalidad</p>
-                            </td>
-                            <td width="9%" class="bbBlack">
-                                <p class="txt6">Nombre</p>
-                            </td>
-                            <td width="85%" class="bbBlack" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Cedula</p></td>
-                            <td class="bbBlack" width="50%"></td>
-                            <td class="bbBlack" width="35%" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"></td>
-                            <td class="bbBlack"><p class="txt6">Finca</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"></td>
-                        </tr>
-                    </table>
-                    <div class="bgGray border" style="height: 15px;"></div>
-                    <table class="tbBlack bbBlack">
-                        <tr>
-                            <td width="50%">
-                                <p class="txt6">El predio tiene mas colindantes</p>
-                            </td>
-                            <td width="5%">
-                                <p class="txt6 txtCenter">SI</p>
-                            </td>
-                            <td width="10%">
-                                <p class="txt6"></p>
-                            </td>
-                            <td width="6%">
-                                <p class="txt6 txtCenter">NO</p>
-                            </td>
-                            <td width="6%">
-                                <p class="txt6"></p>
-                            </td>
-                            <td width="23%" class="bgGray">
-                                <p class="txt6"></p>
-                            </td>
-                        </tr>
-                    </table>
+              <td width="33%" valign="top" style="padding: 0;">
+                <p class="txt8 border">DATOS DE COLINDANTES</p>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2">
+                      <p class="txt6">
+                      <% if @c %>
+                        <%= @c.name %>
+                      <% end %>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+                    <% if @c %>
+                      <%= @c.id_number %>
+                    <% end %>
+
+                    </p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+                    <td class="bbBlack"><p class="txt6"> <% if @c %>
+                      <%= @c.estate %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2"><p class="txt6">
+                    <% if @c1 %>
+                    <%= @c1.name %> <% end %></p>
+                  </td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+                      <% if @c1 %>
+                    <%= @c1.id_number %> <% end %></p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+                    <td class="bbBlack"><p class="txt6">
+                      <% if @c1 %>
+                    <%= @c1.estate %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2"><p class="txt6">
+<% if @c2 %>
+                    <%= @c2.name %>
+                      <% end %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+<% if @c2 %>
+                    <%= @c2.id_number %> <% end %></p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+                    <td class="bbBlack"><p class="txt6">
+<% if @c2 %>
+                    <%= @c2.estate %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2"><p class="txt6">
+<% if @c3 %>
+                    <%= @c3.name %>
+                      <% end %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+<% if @c3 %>
+                    <%= @c3.id_number %> <% end %></p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+                    <td class="bbBlack"><p class="txt6">
+<% if @c3 %>
+                    <%= @c3.estate %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2"><p class="txt6">
+<% if @c4 %>
+                    <%= @c4.name %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+                      <% if @c4 %>
+                    <%= @c4.id_number %> <% end %></p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+
+                    <td class="bbBlack"><p class="txt6"><% if @c4 %> <%= @c4.estate %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="6%" class="bbBlack" rowspan="2">
+                      <p class="txt6">Cardi-<br>nalidad</p>
+                    </td>
+                    <td width="9%" class="bbBlack">
+                      <p class="txt6">Nombre</p>
+                    </td>
+                    <td width="85%" class="bbBlack" colspan="2"><p class="txt6">
+<% if @c5 %>
+                    <%= @c5.name %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Cedula</p></td>
+                    <td class="bbBlack" width="50%"><p class="txt6">
+<% if @c5 %>
+                    <%= @c5.id_number %> <% end %></p></td>
+                    <td class="bbBlack" width="35%" rowspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"></td>
+                    <td class="bbBlack"><p class="txt6">Finca</p></td>
+                    <td class="bbBlack"><p class="txt6">
+<% if @c5 %>
+                    <%= @c5.estate %> <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"></td>
+                  </tr>
+                </table>
+                <div class="bgGray border" style="height: 15px;"></div>
+                <table class="tbBlack bbBlack">
+                  <tr>
+                    <td width="50%">
+                      <p class="txt6">El predio tiene mas colindantes</p>
+                    </td>
+                    <% if  @especial.special_neighbors.count() >= 6 %>
+                    <td width="5%">
+                      <p class="txt6 txtCenter">SI</p>
+                    </td>
+                    <td width="10%">
+                      <p class="txt6">X</p>
+                    </td>
+                    <td width="6%">
+                      <p class="txt6 txtCenter">NO</p>
+                    </td>
+                    <td width="6%">
+                      <p class="txt6"></p>
+                    </td>
+                    <% else %>
+                    <td width="5%">
+                      <p class="txt6 txtCenter">SI</p>
+                    </td>
+                    <td width="10%">
+                      <p class="txt6"></p>
+                    </td>
+                    <td width="6%">
+                      <p class="txt6 txtCenter">NO</p>
+                    </td>
+                    <td width="6%">
+                      <p class="txt6">X</p>
+                    <% end %>
+                    <td width="23%" class="bgGray">
+                      <p class="txt6"></p>
+                    </td>
+                  </tr>
+                </table>
                     <p class="txt8 border">OBSERVACIONES</p>
                 </td>
                 <td width="40%" valign="top" style="padding: 0;">
-                    <p class="txt8 border">OTROS PROPIETARIOS</p>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
-                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
-                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
-                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
-                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
-                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
-                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
-                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                            <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 24px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
-                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
-                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
-                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
-                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
-                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
-                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
-                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                            <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
-                            <td width="25%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
-                            <td width="33%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
-                            <td class="bbBlack" colspan="3"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
-                            <td width="29%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
-                            <td width="11%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                            <td width="15%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
-                            <td width="7%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
-                            <td width="17%" class="bbBlack"><p class="txt6"></p></td>
-                            <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
-                            <td width="30%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                            <td rowspan="3"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Direccion</p></td>
-                            <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td style="height: 25px;"><p class="txt6">Firma</p></td>
-                            <td colspan="4"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                </td>
+                <p class="txt8 border">OTROS PROPIETARIOS</p>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                    <td width="25%" class="bbBlack"><p class="txt6"> <% if @own %>
+                      <%= @own.fecha_oc %>
+                    <% end %></p></td>
+                    <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                    <td width="33%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.fecha_nac %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %><%= @own.p_nombre %><% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.s_nombre %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.p_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.s_apellido %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.c_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.nombre_u %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                    <td class="bbBlack" colspan="3"><p class="txt6"><% if @own %>
+                      <%= @own.organizacion %>
+                    <% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                    <td width="29%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.cedula %>
+                    <% end %></p></td>
+                    <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                    <td width="11%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.estado_c %>
+                    <% end %></p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own %><%= @own.sexo %><% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.estado_c %>
+                    <% end %></p></td>
+                    <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                    <td width="17%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.telefono %>
+                    <% end %></p></td>
+                    <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                    <td width="30%" class="bbBlack"><p class="txt6"><% if @own %>
+                      <%= @own.apartado %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own %>
+                      <%= @own.ocupacion %>
+                    <% end %></p></td>
+                    <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own %>
+                      <%= @own.cedula %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 24px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                 <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                    <td width="25%" class="bbBlack"><p class="txt6"> <% if @own1 %>
+                      <%= @own1.fecha_oc %>
+                    <% end %></p></td>
+                    <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                    <td width="33%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.fecha_nac %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %><%= @own1.p_nombre %><% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.s_nombre %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.p_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.s_apellido %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.c_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.nombre_u %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                    <td class="bbBlack" colspan="3"><p class="txt6"><% if @own1 %>
+                      <%= @own1.organizacion %>
+                    <% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                    <td width="29%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.cedula %>
+                    <% end %></p></td>
+                    <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                    <td width="11%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.estado_c %>
+                    <% end %></p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own1 %><%= @own1.sexo %><% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.estado_c %>
+                    <% end %></p></td>
+                    <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                    <td width="17%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.telefono %>
+                    <% end %></p></td>
+                    <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                    <td width="30%" class="bbBlack"><p class="txt6"><% if @own1 %>
+                      <%= @own1.apartado %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Ocupación</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own1 %>
+                      <%= @own1.ocupacion %>
+                    <% end %></p></td>
+                    <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own1 %>
+                      <%= @own1.cedula %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 24px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                  </tr>
+                </table>
+                <table class="tbBlack">
+                 <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Fecha de Ocupacion</p></td>
+                    <td width="25%" class="bbBlack"><p class="txt6"> <% if @own2 %>
+                      <%= @own2.fecha_oc %>
+                    <% end %></p></td>
+                    <td width="20%" class="bbBlack"><p class="txt6">F.de Nacimiento</p></td>
+                    <td width="33%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.fecha_nac %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %><%= @own2.p_nombre %><% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.s_nombre %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Primer Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.p_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Segundo Apellido</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.s_apellido %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Apellido de Casada</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.c_apellido %>
+                    <% end %></p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre Usual</p></td>
+                    <td class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.nombre_u %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Nombre Organizacion</p></td>
+                    <td class="bbBlack" colspan="3"><p class="txt6"><% if @own2 %>
+                      <%= @own2.organizacion %>
+                    <% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="22%" class="bbBlack"><p class="txt6">Cedula/RUC</p></td>
+                    <td width="29%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.cedula %>
+                    <% end %></p></td>
+                    <td width="16%" class="bbBlack"><p class="txt6">Tipo de Persona</p></td>
+                    <td width="11%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.estado_c %>
+                    <% end %></p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.sexo %>
+                    <% end %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="15%" class="bbBlack"><p class="txt6">Estado Civil</p></td>
+                    <td width="7%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.estado_c %>
+                    <% end %></p></td>
+                    <td width="12%" class="bbBlack"><p class="txt6">Telefono</p></td>
+                    <td width="17%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.telefono %>
+                    <% end %></p></td>
+                    <td width="19%" class="bbBlack"><p class="txt6">Apartado</p></td>
+                    <td width="30%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.apartado %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"></p><% if @own2 %>
+                      <%= @own2.ocupacion %>
+                    <% end %></td>
+                    <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Direccion</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own2 %>
+                      <%= @own2.cedula %>
+                    <% end %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 24px;"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack" colspan="4"><p class="txt6"></p></td>
+                  </tr>
+                </table>
+              </td>
                 <td width="27%" valign="top" style="padding: 0;" rowspan="2">
-                    <p class="txt8 border">DATOS DEL LEVANTAMIENTO</p>
-                    <table class="tbBlack">
-                        <tr>
-                            <td width="38%" class="bbBlack" rowspan="2"><p class="txt6">Empadronador(a)</p></td>
-                            <td width="15%" class="bbBlack"><p class="txt6">Nombre</p></td>
-                            <td width="47%" class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"><p class="txt6">Inspector(a)</p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"><p class="txt6">Supervisor(a)</p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" rowspan="2"><p class="txt6">Captador(a)</p></td>
-                            <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Firma</p></td>
-                            <td class="bbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Empresa</p></td>
-                            <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack"><p class="txt6">Metodologia </p></td>
-                            <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table class="bbBlack">
-                        <tr>
-                            <td width="34%"><p class="txt6">Fecha del Levantamiento</p></td>
-                            <td width="4%"><p class="txt6"></p></td>
-                            <td width="17%"><p class="txt6"></p></td>
-                            <td width="34%"><p class="txt6">Hora del Levantamiento</p></td>
-                            <td width="11%"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="tbBlack"><p class="txt6">Equipo utilizado</p></td>
-                            <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="tbBlack"><p class="txt6">Verificado por</p></td>
-                            <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td width="83%" class="bbBlack" style="height: 41px;" valign="top"><p class="txt6">Firma del Propietario/Ocupante</p></td>
-                            <td width="17%" class="bbBlack" rowspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="bbBlack" style="height: 26px;" valign="top"><p class="txt6">Cedula del Propietario/Ocupante</p></td>
-                        </tr>
+                <p class="txt8 border">DATOS DEL LEVANTAMIENTO</p>
+                <table class="tbBlack">
+                  <tr>
+                    <td width="38%" class="bbBlack" rowspan="2"><p class="txt6">Empadronador(a)</p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6">Nombre</p></td>
+                    <td width="47%" class="bbBlack"><p class="txt6"><%= @especial.empadronador_nombre %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"><p class="txt6">Inspector(a)</p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @especial.inspector_nombre %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"><p class="txt6">Supervisor(a)</p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @especial.supervisor_nombre %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" rowspan="2"><p class="txt6">Captador(a)</p></td>
+                    <td class="bbBlack"><p class="txt6">Nombre</p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @especial.captador_nombre %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Firma</p></td>
+                    <td class="bbBlack"><p class="txt6"></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Empresa</p></td>
+                    <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.empresa %></p></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack"><p class="txt6">Metodologia </p></td>
+                    <td class="bbBlack" colspan="2"><p class="txt6"><%= @especial.metodologia %></p></td>
+                  </tr>
+                </table>
+                <table class="bbBlack">
+                  <tr>
+                    <td width="34%"><p class="txt6">Fecha del Levantamiento</p></td>
+                    <td width="4%"><p class="txt6"><%= @especial.fecha_levantamiento %></p></td>
+                    <td width="17%"><p class="txt6"></p></td>
+                    <td width="34%"><p class="txt6">Hora del Levantamiento</p></td>
+                    <td width="11%"><p class="txt6"><%= @especial.hora_levantamiento %></p></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="tbBlack"><p class="txt6">Equipo utilizado</p></td>
+                    <td colspan="3" class="tbBlack"><p class="txt6"><%= @especial.equipo %></p></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="tbBlack"><p class="txt6">Verificado por</p></td>
+                    <td colspan="3" class="tbBlack"><p class="txt6"><%= @especial.verficado %></p></td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td width="83%" class="bbBlack" style="height: 41px;" valign="top"><p class="txt6">Firma del Propietario/Ocupante</p></td>
+                    <td width="17%" class="bbBlack" rowspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td class="bbBlack" style="height: 26px;" valign="top"><p class="txt6">Cedula del Propietario/Ocupante <br> <%= @especial.cedula_propetario %></p></td>
+                  </tr>
                         <tr>
                             <td class="bbBlack" valign="top" colspan="2"><p class="txt8">CROQUIS DEL PREDIO <span style="float: right;">Un cuadro = ____ mts.</span> </p></td>
                         </tr>
@@ -2952,7 +3105,7 @@
                 <td colspan="2" class="tbBlack" style="padding: 0;">
                     <table>
                         <tr>
-                            <td width="100%" class="bbBlack" style="height: 24px;"></td>
+                            <td width="100%" class="bbBlack" style="height: 24px;"> <p class="txt6"><%= @especial.observaciones_ficha %></p> </td>
                         </tr>
                         <tr>
                             <td width="100%" class="bbBlack" style="height: 24px;"></td>
@@ -2971,7 +3124,3 @@
 </div>
 </body>
 </html>
-
-
-
-

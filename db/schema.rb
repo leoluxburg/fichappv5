@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_234659) do
+ActiveRecord::Schema.define(version: 2021_07_15_052253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_especials_on_user_id"
   end
 
   create_table "neighbors", force: :cascade do |t|
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.bigint "rural_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cardinalidad"
     t.index ["rural_id"], name: "index_neighbors_on_rural_id"
   end
 
@@ -182,6 +185,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.bigint "rural_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sexo"
     t.index ["rural_id"], name: "index_owners_on_rural_id"
   end
 
@@ -288,6 +292,78 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.float "longitude"
     t.string "address"
     t.index ["user_id"], name: "index_rurals_on_user_id"
+  end
+
+  create_table "special_neighbors", force: :cascade do |t|
+    t.string "name"
+    t.string "id_number"
+    t.string "estate"
+    t.string "firma"
+    t.string "cardinalidad"
+    t.bigint "especial_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["especial_id"], name: "index_special_neighbors_on_especial_id"
+  end
+
+  create_table "special_owners", force: :cascade do |t|
+    t.date "fecha_oc"
+    t.date "fecha_nac"
+    t.string "p_nombre"
+    t.string "s_nombre"
+    t.string "p_apellido"
+    t.string "s_apellido"
+    t.string "c_apellido"
+    t.string "nombre_u"
+    t.string "organizacion"
+    t.string "sexo"
+    t.string "cedula"
+    t.string "estado_c"
+    t.string "telefono"
+    t.string "apartado"
+    t.string "ocupacion"
+    t.string "dirreccion"
+    t.string "firma"
+    t.bigint "especial_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["especial_id"], name: "index_special_owners_on_especial_id"
+  end
+
+  create_table "urban_neighbors", force: :cascade do |t|
+    t.string "name"
+    t.string "id_number"
+    t.string "estate"
+    t.string "firma"
+    t.string "cardinalidad"
+    t.bigint "urbano_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["urbano_id"], name: "index_urban_neighbors_on_urbano_id"
+  end
+
+  create_table "urban_owners", force: :cascade do |t|
+    t.date "fecha_oc"
+    t.date "fecha_nac"
+    t.string "p_nombre"
+    t.string "s_nombre"
+    t.string "p_apellido"
+    t.string "s_apellido"
+    t.string "c_apellido"
+    t.string "nombre_u"
+    t.string "organizacion"
+    t.string "sexo"
+    t.string "cedula"
+    t.string "estado_c"
+    t.string "telefono"
+    t.string "apartado"
+    t.string "ocupacion"
+    t.string "dirreccion"
+    t.string "firma"
+    t.bigint "urbano_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["urbano_id"], name: "index_urban_owners_on_urbano_id"
   end
 
   create_table "urbanos", force: :cascade do |t|
@@ -426,6 +502,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_urbanos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -446,7 +524,13 @@ ActiveRecord::Schema.define(version: 2021_06_29_234659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "especials", "users"
   add_foreign_key "neighbors", "rurals"
   add_foreign_key "owners", "rurals"
   add_foreign_key "rurals", "users"
+  add_foreign_key "special_neighbors", "especials"
+  add_foreign_key "special_owners", "especials"
+  add_foreign_key "urban_neighbors", "urbanos"
+  add_foreign_key "urban_owners", "urbanos"
+  add_foreign_key "urbanos", "users"
 end

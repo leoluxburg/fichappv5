@@ -6,11 +6,11 @@
       <div class="text-center">
         <h2 class="text-center">Agregar Colindate</h2>
       </div>
-      <%= simple_form_for [@rural, @neighbor] do |f|%>
+      <%= simple_form_for [@urbano, @neighbor] do |f|%>
       <%= f.input :name, :label => "Nombre" %>
       <%= f.input :id_number, :label => "Cedula" %>
       <%= f.input :estate, :label => "Finca" %>
-      <%= f.input :cardinalidad, :label => "Cardinalidad",collection: [ "Norte", "Sur", "Este", "Oeste" ]  %>
+      <%= f.input :cardinalidad, :label => "Cardinalidad",collection: [ "Norte", "Sur", "Este", "Oeste" ] %>
       <div class="text-center">
       <%= f.submit "Guardar", class: "btn btn-fichapp" %>
       </div>

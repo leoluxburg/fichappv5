@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   resources :urbanos do
+    resources :urban_neighbors, only: [:new, :create]
+    resources :urban_owners, only: [:new, :create]
+
     member do
       get 'report'
     end
   end
 
   resources :especials do
+    resources :special_neighbors, only: [:new, :create]
+    resources :special_owners, only: [:new, :create]
     member do
       get 'report'
     end

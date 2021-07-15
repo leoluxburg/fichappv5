@@ -4,7 +4,7 @@
     <div class="">
       <div class="text-center">
        <h1><i class="fas fa-building"></i></h1>
-       <h2>URBANA</h2>
+       <h2>URBANO</h2>
        <h4>Fichas Registradas</h4>
      </div>
     <br>
@@ -22,7 +22,7 @@
         <tbody>
           <% @urbanos.each do |urbano| %>
           <tr>
-            <th scope="row">1<%= urbano.n_predio %></th>
+            <th scope="row"><%= urbano.n_predio %></th>
             <td style="border-color: white;"><%= link_to 'Ver', urbano %></td>
             <td style="border-color: white;"><%= link_to 'Editar', edit_urbano_path(urbano) %></td>
             <td style="border-color: white;"><%= link_to 'Eliminar', urbano, method: :delete, data: { confirm: 'Are you sure?' } %></td>

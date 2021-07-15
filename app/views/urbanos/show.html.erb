@@ -34,272 +34,218 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div id="home" class="container tab-pane active"><br>
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Localizacion del predio</h3>
-            <hr>
-            <p><strong>Dirreccion:</strong></p>
-            <div id='map' style='width: 400px; height: 300px;'></div>
-            <br>
-            <p>
-              <strong>Provincia:</strong>
-              <%= @urbano.provincia %>
-            </p>
+           <div class="row">
+            <div class="col-md-6">
+              <h3>Localizacion del predio</h3>
+              <hr>
+              <p><strong>Dirreccion:</strong></p>
+              <div id='map' style='width: 400px; height: 300px;'></div>
+              <br>
+              <p>
+                <strong>Provincia:</strong>
+                <%= @urbano.provincia %>
+              </p>
 
-            <p>
-              <strong>Distrito:</strong>
-              <%= @urbano.distrito %>
-            </p>
+              <p>
+                <strong>Distrito:</strong>
+                <%= @urbano.distrito %>
+              </p>
 
-            <p>
-              <strong>Corregimiento:</strong>
-              <%= @urbano.corregimiento %>
-            </p>
+              <p>
+                <strong>Corregimiento:</strong>
+                <%= @urbano.corregimiento %>
+              </p>
 
-            <p>
-              <strong>Ejido:</strong>
-              <%= @urbano.ejido %>
-            </p>
+              <p>
+                <strong>Ejido:</strong>
+                <%= @urbano.ejido %>
+              </p>
 
-            <p>
-              <strong>Lugar:</strong>
-              <%= @urbano.lugar %>
-            </p>
+              <p>
+                <strong>Lugar:</strong>
+                <%= @urbano.lugar %>
+              </p>
 
-            <p>
-              <strong>Calle:</strong>
-              <%= @urbano.calle %>
-            </p>
+              <p>
+                <strong>Calle:</strong>
+                <%= @urbano.calle %>
+              </p>
 
-            <p>
-              <strong>Localizacion:</strong>
-              <%= @urbano.localizacion %>
-            </p>
-            <br>
-            <h3>Detalles del Titulo</h3>
-            <hr>
-            <p>
-              <strong>Finca:</strong>
-              <%= @urbano.finca %>
-            </p>
+              <p>
+                <strong>Localizacion:</strong>
+                <%= @urbano.localizacion %>
+              </p>
+              <br>
+              <h3>Detalles del Titulo</h3>
+              <hr>
+              <p>
+                <strong>Finca:</strong>
+                <%= @urbano.finca %>
+              </p>
 
-            <p>
-              <strong>Folio:</strong>
-              <%= @urbano.folio %>
-            </p>
+              <p>
+                <strong>Folio:</strong>
+                <%= @urbano.folio %>
+              </p>
 
-            <p>
-              <strong>Docum:</strong>
-              <%= @urbano.docum %>
-            </p>
+              <p>
+                <strong>Docum:</strong>
+                <%= @urbano.docum %>
+              </p>
 
-            <p>
-              <strong>Operacion:</strong>
-              <%= @urbano.operacion %>
-            </p>
+              <p>
+                <strong>Operación:</strong>
+                <%= @urbano.operacion %>
+              </p>
 
-            <p>
-              <strong>Tomo:</strong>
-              <%= @urbano.tomo %>
-            </p>
+              <p>
+                <strong>Tomo:</strong>
+                <%= @urbano.tomo %>
+              </p>
 
-            <p>
-              <strong>Rollo:</strong>
-              <%= @urbano.rollo %>
-            </p>
+              <p>
+                <strong>Rollo:</strong>
+                <%= @urbano.rollo %>
+              </p>
 
-            <p>
-              <strong>Registro:</strong>
-              <%= @urbano.registro %>
-            </p>
+              <p>
+                <strong>Registro:</strong>
+                <%= @urbano.registro %>
+              </p>
 
-            <p>
-              <strong>Asiento:</strong>
-              <%= @urbano.asiento %>
-            </p>
+              <p>
+                <strong>Asiento:</strong>
+                <%= @urbano.asiento %>
+              </p>
 
-            <p>
-              <strong>Fecha del titulo:</strong>
-              <%= @urbano.fecha_del_titulo %>
-            </p>
+              <p>
+                <strong>Fecha del titulo:</strong>
+                <%= @urbano.fecha_del_titulo %>
+              </p>
 
-            <p>
-              <strong>Fecha de registro:</strong>
-              <%= @urbano.fecha_de_registro %>
-            </p>
+              <p>
+                <strong>Fecha de registro:</strong>
+                <%= @urbano.fecha_de_registro %>
+              </p>
 
-            <p>
-              <strong>Superficie inscrita:</strong>
-              <%= @urbano.superficie_inscrita %>
-            </p>
+              <p>
+                <strong>Superficie inscrita:</strong>
+                <%= @urbano.superficie_inscrita %>
+              </p>
 
-            <p>
-              <strong>Finca madre:</strong>
-              <%= @urbano.finca_madre %>
-            </p>
+              <p>
+                <strong>Finca madre:</strong>
+                <%= @urbano.finca_madre %>
+              </p>
 
-            <p>
-              <strong>Otorgado:</strong>
-              <%= @urbano.otorgado %>
-            </p>
+              <p>
+                <strong>Otorgado:</strong>
+                <%= @urbano.otorgado %>
+              </p>
 
-            <p>
-              <strong>Tipo de titulo:</strong>
-              <%= @urbano.tipo_de_titulo %>
-            </p>
+              <p>
+                <strong>Tipo de titulo:</strong>
+                <%= @urbano.tipo_de_titulo %>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <h3>Datos Generales del Predio</h3>
+              <hr>
+              <p>
+                <strong>No. Mapa catastral:</strong>
+                <%= @urbano.n_mapa_catastral %>
+              </p>
+
+              <p>
+                <strong>No. Ortofoto:</strong>
+                <%= @urbano.n_ortofoto %>
+              </p>
+
+              <p>
+                <strong>No. Predio:</strong>
+                <%= @urbano.n_predio %>
+              </p>
+              <p>
+                <strong>Secuencia Predial:</strong>
+                <%= @urbano.s_predial %>
+              </p>
+              <p>
+                <strong>Nombre predio:</strong>
+                <%= @urbano.nombre_predio %>
+              </p>
+              <br>
+              <h3>Estatus Juridico del Predio</h3>
+              <hr>
+              <p>
+                <strong>Titulo propiedad:</strong>
+                <%= @urbano.titulo_propiedad %>
+              </p>
+              <p>
+                <strong>Ph:</strong>
+                <%= @urbano.ph %>
+              </p>
+              <p>
+                <strong>Finca ph:</strong>
+                <%= @urbano.finca_ph %>
+              </p>
+              <p>
+                <strong>Concesion admin:</strong>
+                <%= @urbano.concesion_admin %>
+              </p>
+              <p>
+                <strong>Litigio:</strong>
+                <%= @urbano.litigio %>
+              </p>
+              <p>
+                <strong>Tipo de litigio:</strong>
+                <%= @urbano.tipo_de_litigio %>
+              </p>
+              <br>
+              <h3>Detalle de la Concesion</h3>
+              <hr>
+              <p>
+                <strong>No. Resolucion:</strong>
+                <%= @urbano.n_resolucion %>
+              </p>
+
+              <p>
+                <strong>Fecha resolucion:</strong>
+                <%= @urbano.fecha_resolucion %>
+              </p>
+              <br>
+              <h3>Datos Catastrales</h3>
+              <hr>
+              <p>
+                <strong>Tipo resolucion:</strong>
+                <%= @urbano.tipo_resolucion %>
+              </p>
+
+              <p>
+                <strong>No. de Orden:</strong>
+                <%= @urbano.n_de_orden %>
+              </p>
+
+              <p>
+                <strong>No. de Plano:</strong>
+                <%= @urbano.n_plano %>
+              </p>
+
+              <p>
+                <strong>Globo:</strong>
+                <%= @urbano.globo %>
+              </p>
+
+              <p>
+                <strong>Plano de Referencia:</strong>
+                <%= @urbano.plano_de_referencia %>
+              </p>
+
+              <p>
+                <strong>Sup Reportada:</strong>
+                <%= @urbano.sup_reportada %>
+              </p>
+            </div>
           </div>
-          <div class="col-md-6">
-            <h3>Datos Generales del Predio</h3>
-            <hr>
-            <p>
-              <strong>No. Mapa catastral:</strong>
-              <%= @urbano.n_mapa_catastral %>
-            </p>
-
-            <p>
-              <strong>No. Ortofoto:</strong>
-              <%= @urbano.n_ortofoto %>
-            </p>
-
-            <p>
-              <strong>No. Predio:</strong>
-              <%= @urbano.n_predio %>
-            </p>
-            <p>
-              <strong>Secuencia Predial:</strong>
-              <%= @urbano.s_predial %>
-            </p>
-            <p>
-              <strong>Nombre predio:</strong>
-              <%= @urbano.nombre_predio %>
-            </p>
-            <br>
-            <h3>Estatus Juridico del Predio</h3>
-            <hr>
-            <p>
-              <strong>Titulo propiedad:</strong>
-              <%= @urbano.titulo_propiedad %>
-            </p>
-            <p>
-              <strong>Ph:</strong>
-              <%= @urbano.ph %>
-            </p>
-            <p>
-              <strong>Finca ph:</strong>
-              <%= @urbano.finca_ph %>
-            </p>
-            <p>
-              <strong>Concesion admin:</strong>
-              <%= @urbano.concesion_admin %>
-            </p>
-            <p>
-              <strong>Litigio:</strong>
-              <%= @urbano.litigio %>
-            </p>
-            <p>
-              <strong>Tipo de litigio:</strong>
-              <%= @urbano.tipo_de_litigio %>
-            </p>
-            <br>
-            <h3>Detalle de la Concesion</h3>
-            <hr>
-            <p>
-              <strong>No. Resolucion:</strong>
-              <%= @urbano.n_resolucion %>
-            </p>
-
-            <p>
-              <strong>Fecha resolucion:</strong>
-              <%= @urbano.fecha_resolucion %>
-            </p>
-            <br>
-            <h3>Datos Catastrales</h3>
-            <hr>
-            <p>
-              <strong>Tipo resolucion:</strong>
-              <%= @urbano.tipo_resolucion %>
-            </p>
-
-            <p>
-              <strong>No. de Orden:</strong>
-              <%= @urbano.n_de_orden %>
-            </p>
-
-            <p>
-              <strong>No. de Plano:</strong>
-              <%= @urbano.n_plano %>
-            </p>
-
-            <p>
-              <strong>Globo:</strong>
-              <%= @urbano.globo %>
-            </p>
-
-            <p>
-              <strong>Plano de Referencia:</strong>
-              <%= @urbano.plano_de_referencia %>
-            </p>
-
-            <p>
-              <strong>Sup Reportada:</strong>
-              <%= @urbano.sup_reportada %>
-            </p>
-          </div>
-        </div>
-        <br>
-
-        <br>
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Detalle de la Concesion</h3>
-            <hr>
-            <p>
-              <strong>N resolucion:</strong>
-              <%= @urbano.n_resolucion %>
-            </p>
-
-            <p>
-              <strong>Fecha resolucion:</strong>
-              <%= @urbano.fecha_resolucion %>
-            </p>
-
-
-          </div>
-          <div class="col-md-6">
-            <h3>Datos Catastrales</h3>
-            <hr>
-            <p>
-              <strong>Tipo resolucion:</strong>
-              <%= @urbano.tipo_resolucion %>
-            </p>
-
-            <p>
-              <strong>N de orden:</strong>
-              <%= @urbano.n_de_orden %>
-            </p>
-
-            <p>
-              <strong>N plano:</strong>
-              <%= @urbano.n_plano %>
-            </p>
-
-            <p>
-              <strong>Globo:</strong>
-              <%= @urbano.globo %>
-            </p>
-
-            <p>
-              <strong>Plano de referencia:</strong>
-              <%= @urbano.plano_de_referencia %>
-            </p>
-
-            <p>
-              <strong>Sup reportada:</strong>
-              <%= @urbano.sup_reportada %>
-            </p>
-
-          </div>
-        </div>
       </div>
       <div id="menu1" class="container tab-pane fade"><br>
         <div class="row">
@@ -412,7 +358,7 @@
       <div id="menu2" class="container tab-pane fade"><br>
         <div class="row">
           <div class="col-md-6">
-            <h3>Caracteristicas del predio</h3>
+            <h3>Limitaciones Naturales</h3>
             <hr>
             <p>
               <strong>Inclinacion:</strong>
@@ -423,22 +369,74 @@
               <strong>Aprovechamiento:</strong>
               <%= @urbano.aprovechamiento %>
             </p>
+            <p>
+              <strong>Vivienda:</strong>
+              <%= @urbano.vivienda_t %>
+            </p>
 
+            <p>
+              <strong>Comercial:</strong>
+              <%= @urbano.comercial_t %>
+            </p>
 
+            <p>
+              <strong>Industrial:</strong>
+              <%= @urbano.industrial_t %>
+            </p>
+
+            <p>
+              <strong>Turístico:</strong>
+              <%= @urbano.turístico_t %>
+            </p>
+
+            <p>
+              <strong>Educacional:</strong>
+              <%= @urbano.educacional_t %>
+            </p>
+
+            <p>
+              <strong>Uso publico:</strong>
+              <%= @urbano.uso_publico_t %>
+            </p>
+
+            <p>
+              <strong>Comunal:</strong>
+              <%= @urbano.comunal_t %>
+            </p>
+
+            <p>
+              <strong>Agricola:</strong>
+              <%= @urbano.agricola_t %>
+            </p>
+
+            <p>
+              <strong>Ganadero:</strong>
+              <%= @urbano.ganadero_t %>
+            </p>
+
+            <p>
+              <strong>Otro:</strong>
+              <%= @urbano.otro_t %>
+            </p>
 
             <p>
               <strong>Vias acesso:</strong>
               <%= @urbano.vias_acesso %>
             </p>
-
+            <h3>Datos Generales de la Manzana</h3>
+            <hr>
+            <p>
+              <strong>Numero de Manzanaa:</strong>
+              <%= @urbano.n_manzana %>
+            </p>
 
             <p>
-              <strong>M uso:</strong>
+              <strong>Uso de la Tierra en la Manzana:</strong>
               <%= @urbano.m_uso %>
             </p>
 
             <p>
-              <strong>Cera:</strong>
+              <strong>Acera:</strong>
               <%= @urbano.cera %>
             </p>
 
@@ -448,12 +446,12 @@
             </p>
 
             <p>
-              <strong>Tuberia gas:</strong>
+              <strong>Tuberia de Gas:</strong>
               <%= @urbano.tuberia_gas %>
             </p>
 
             <p>
-              <strong>M cordon:</strong>
+              <strong>Cordon:</strong>
               <%= @urbano.m_cordon %>
             </p>
 
@@ -463,12 +461,12 @@
             </p>
 
             <p>
-              <strong>Telefono m:</strong>
+              <strong>Telefono:</strong>
               <%= @urbano.telefono_m %>
             </p>
 
             <p>
-              <strong>M luz:</strong>
+              <strong>Acceso a Luz:</strong>
               <%= @urbano.m_luz %>
             </p>
 
@@ -478,24 +476,60 @@
             </p>
 
             <p>
-              <strong>Senal celular:</strong>
+              <strong>Señal Celular:</strong>
               <%= @urbano.senal_celular %>
             </p>
 
             <p>
-              <strong>Sena satelital:</strong>
+              <strong>Señal satelital:</strong>
               <%= @urbano.sena_satelital %>
             </p>
 
             <p>
-              <strong>M otro:</strong>
+              <strong>Otro:</strong>
               <%= @urbano.m_otro %>
             </p>
 
+            <p>
+              <strong>Material de la Calle:</strong>
+              <%= @urbano.material_calle %>
+            </p>
 
+            <h3>Descripcion de la Mejora</h3>
+            <hr>
 
             <p>
-              <strong>Tipo resindencial:</strong>
+              <strong>Uso Recidencial:</strong>
+              <%= @urbano.uso_recidencial %>
+            </p>
+
+            <p>
+              <strong>Uso Tuiristico:</strong>
+              <%= @urbano.uso_tuiristico %>
+            </p>
+
+            <p>
+              <strong>Uso Industrial:</strong>
+              <%= @urbano.uso_industrial %>
+            </p>
+
+            <p>
+              <strong>Uso Educacioal:</strong>
+              <%= @urbano.uso_educacioal %>
+            </p>
+
+            <p>
+              <strong>Uso Comercial:</strong>
+              <%= @urbano.uso_comercial %>
+            </p>
+
+            <p>
+              <strong>Uso Recreacional:</strong>
+              <%= @urbano.uso_recreacional %>
+            </p>
+
+            <p>
+              <strong>Tipo de Resindencial:</strong>
               <%= @urbano.tipo_resindencial %>
             </p>
 
@@ -510,29 +544,62 @@
             </p>
 
             <p>
-              <strong>Cubierta techo:</strong>
+              <strong>Cubierta de Techo:</strong>
               <%= @urbano.cubierta_techo %>
             </p>
 
-
+            <p>
+              <strong>Piso Cemento:</strong>
+              <%= @urbano.piso_cemento %>
+            </p>
 
             <p>
-              <strong>Solo agua:</strong>
+              <strong>Piso Baldosa:</strong>
+              <%= @urbano.piso_baldosa %>
+            </p>
+
+            <p>
+              <strong>Piso Granito:</strong>
+              <%= @urbano.piso_granito %>
+            </p>
+
+            <p>
+              <strong>Piso Ceramica:</strong>
+              <%= @urbano.piso_ceramica %>
+            </p>
+
+            <p>
+              <strong>Piso Madera:</strong>
+              <%= @urbano.piso_madera %>
+            </p>
+
+            <p>
+              <strong>Piso Tierra:</strong>
+              <%= @urbano.piso_tierra %>
+            </p>
+
+            <p>
+              <strong>Otro Piso:</strong>
+              <%= @urbano.piso_otro %>
+            </p>
+
+            <p>
+              <strong>Agua Solamente:</strong>
               <%= @urbano.solo_agua %>
             </p>
 
             <p>
-              <strong>N diseminados:</strong>
+              <strong>No. de Diseminados:</strong>
               <%= @urbano.n_diseminados %>
             </p>
 
             <p>
-              <strong>N servicio2:</strong>
+              <strong>No. de Servicios de 2 Artefactos:</strong>
               <%= @urbano.n_servicio2 %>
             </p>
 
             <p>
-              <strong>N servicio3:</strong>
+              <strong>No. de Servicios de 3 Artefactos:</strong>
               <%= @urbano.n_servicio3 %>
             </p>
 
@@ -542,7 +609,7 @@
             </p>
 
             <p>
-              <strong>M otro2:</strong>
+              <strong>Otro:</strong>
               <%= @urbano.m_otro2 %>
             </p>
 
@@ -556,126 +623,177 @@
           <div class="col-md-6">
             <h3>Datos de colindates</h3>
             <hr>
+            <% @urbano.urban_neighbors.each do |n| %>
+            <p>
+              <strong>Nombre:</strong>
+              <%= n.name %>
+            </p>
+            <p>
+              <strong>Cedula:</strong>
+              <%= n.id_number %>
+            </p>
+            <p>
+              <strong>Finca:</strong>
+              <%= n.estate %>
+            </p>
+            <%= link_to "Eliminar",
+            neighbor_path(n),
+            method: :delete,
+            data: { confirm: "Seguro?" } %>
 
+            <% end %>
+            <br>
+            <br>
+            <%= link_to 'Agregar Colindante', new_urbano_urban_neighbor_path(@urbano), class: "btn btn-fichapp"%>
           </div>
         </div>
       </div>
       <div id="menu4" class="container tab-pane fade"><br>
         <div class="row">
          <div class="col-md-6">
-          <h3>Otros Propietarios</h3>
-          <hr>
+          <h3>Propietarios</h3>
+              <hr>
+              <% @urbano.urban_owners.each do |n| %>
+              <p>
+                <strong>Fecha de Ocupación:</strong>
+                <%= n.fecha_oc %>
+              </p>
+              <p>
+                <strong>Fecha de Nacimiento:</strong>
+                <%= n.fecha_nac %>
+              </p>
+              <p>
+                <strong>Primer Nombre:</strong>
+                <%= n.p_nombre %>
+              </p>
+              <p>
+                <strong>Segundo Nombre:</strong>
+                <%= n.s_nombre %>
+              </p>
+              <p>
+                <strong>Primer Apellido:</strong>
+                <%= n.p_apellido %>
+              </p>
+              <p>
+                <strong>Segundo Apellido:</strong>
+                <%= n.s_apellido %>
+              </p>
+              <p>
+                <strong>Apellido de Casada:</strong>
+                <%= n.c_apellido %>
+              </p>
+              <p>
+                <strong>Nombre Usual:</strong>
+                <%= n.nombre_u %>
+              </p>
+              <p>
+                <strong>Organizacion:</strong>
+                <%= n.organizacion %>
+              </p>
+              <p>
+                <strong>Cedula/RUC:</strong>
+                <%= n.cedula %>
+              </p>
+              <p>
+                <strong>Estado Civil:</strong>
+                <%= n.estado_c %>
+              </p>
+              <p>
+                <strong>Telefono:</strong>
+                <%= n.telefono %>
+              </p>
+              <p>
+                <strong>Apartado:</strong>
+                <%= n.apartado %>
+              </p>
+              <p>
+                <strong>Ocupación:</strong>
+                <%= n.ocupacion %>
+              </p>
+              <p>
+                <strong>Dirrección:</strong>
+                <%= n.dirreccion %>
+              </p>
+              <%= link_to "Eliminar",
+              owner_path(n),
+              method: :delete,
+              data: { confirm: "Seguro?" } %>
+              <br>
+              <br>
+              <% end %>
+              <%= link_to 'Agregar Propietario', new_urbano_urban_owner_path(@urbano), class: "btn btn-fichapp"%>
+            </div>
 
-        </div>
       </div>
     </div>
     <div id="menu5" class="container tab-pane fade"><br>
       <div class="row">
         <div class="col-md-6">
           <h3>Datos de Levantamiento</h3>
-          <hr>
+              <hr>
+              <p>
+                <strong>Empadronador:</strong>
+                <%= @urbano.empadronador_nombre %>
+              </p>
+              <p>
+                <strong>Inspector:</strong>
+                <%= @urbano.inspector_nombre %>
+              </p>
 
+              <p>
+                <strong>Supervisor:</strong>
+                <%= @urbano.supervisor_nombre %>
+              </p>
 
-          <p>
-            <strong>Empadronador nombre:</strong>
-            <%= @urbano.empadronador_nombre %>
-          </p>
+              <p>
+                <strong>Captador:</strong>
+                <%= @urbano.captador_nombre %>
+              </p>
 
-          <p>
-            <strong>Empadronador firma:</strong>
-            <%= @urbano.empadronador_firma %>
-          </p>
+              <p>
+                <strong>Empresa:</strong>
+                <%= @urbano.empresa %>
+              </p>
 
-          <p>
-            <strong>Inspector nombre:</strong>
-            <%= @urbano.inspector_nombre %>
-          </p>
+              <p>
+                <strong>Metodologia:</strong>
+                <%= @urbano.metodologia %>
+              </p>
 
-          <p>
-            <strong>Inspector firma:</strong>
-            <%= @urbano.inspector_firma %>
-          </p>
+              <p>
+                <strong>Fecha levantamiento:</strong>
+                <%= @urbano.fecha_levantamiento %>
+              </p>
 
-          <p>
-            <strong>Supervisor nombre:</strong>
-            <%= @urbano.supervisor_nombre %>
-          </p>
+              <p>
+                <strong>Hora levantamiento:</strong>
+                <%= @urbano.hora_levantamiento %>
+              </p>
 
-          <p>
-            <strong>Supervisor firma:</strong>
-            <%= @urbano.supervisor_firma %>
-          </p>
+              <p>
+                <strong>Equipo:</strong>
+                <%= @urbano.equipo %>
+              </p>
 
-          <p>
-            <strong>Captador nombre:</strong>
-            <%= @urbano.captador_nombre %>
-          </p>
+              <p>
+                <strong>Verficado:</strong>
+                <%= @urbano.verficado %>
+              </p>
 
-          <p>
-            <strong>Captador firma:</strong>
-            <%= @urbano.captador_firma %>
-          </p>
-
-          <p>
-            <strong>Empresa:</strong>
-            <%= @urbano.empresa %>
-          </p>
-
-          <p>
-            <strong>Metodologia:</strong>
-            <%= @urbano.metodologia %>
-          </p>
-
-          <p>
-            <strong>Fecha levantamiento:</strong>
-            <%= @urbano.fecha_levantamiento %>
-          </p>
-
-          <p>
-            <strong>Hora levantamiento:</strong>
-            <%= @urbano.hora_levantamiento %>
-          </p>
-
-          <p>
-            <strong>Equipo:</strong>
-            <%= @urbano.equipo %>
-          </p>
-
-          <p>
-            <strong>Verficado:</strong>
-            <%= @urbano.verficado %>
-          </p>
-
-          <p>
-            <strong>Firma propietario:</strong>
-            <%= @urbano.firma_propietario %>
-          </p>
-
-          <p>
-            <strong>Cedula propetario:</strong>
-            <%= @urbano.cedula_propetario %>
-          </p>
-
-          <p>
-            <strong>Funcionario firma:</strong>
-            <%= @urbano.funcionario_firma %>
-          </p>
-
-          <p>
-            <strong>Sustanciador firma:</strong>
-            <%= @urbano.sustanciador_firma %>
-          </p>
+              <p>
+                <strong>Cedula propetario:</strong>
+                <%= @urbano.cedula_propetario %>
+              </p>
         </div>
       </div>
     </div>
-    <p>Creado por: </p>
   </div>
+  <hr>
+  <p>Creado por: <%= @urbano.user.name  %> <%= @urbano.user.last_name  %></p>
+   <%= link_to 'Editar', edit_urbano_path(@urbano) %>
 </div>
-<br>
+</div>
 
-<%= link_to 'Edit', edit_urbano_path(@urbano) %> |
-<%= link_to 'Back', urbanos_path %>
-</div>
 <br>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibGVvbmFyZG9sdXhidXJnIiwiYSI6ImNrcGQ1anJyazFjaG4yb28xZXd3OHN2cXYifQ.-GSLSv_1CUBP_y3-DNo7Ew';
@@ -692,4 +810,4 @@
             .setLngLat([<%= @urbano.longitude %>, <%= @urbano.latitude %>])
             .addTo(map);
 
-</script>
+          </script>

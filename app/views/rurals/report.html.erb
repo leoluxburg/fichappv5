@@ -172,7 +172,7 @@
           <td width="2%"></td>
           <td width="13%"><p class="txt8">CEDULA CATASTRAL</p></td>
           <td width="20%">
-            <div class="box"></div>
+            <div class="box"><%= @rural.id_catastral %></div>
           </td>
           <td width="30%"></td>
           <td width="5%"><p class="txt8">RURAL</p></td>
@@ -1782,13 +1782,13 @@
                       <p class="txt6 txtCenter">SI</p>
                     </td>
                     <td width="10%">
-                      <p class="txt6">X</p>
+                      <p class="txt6"></p>
                     </td>
                     <td width="6%">
                       <p class="txt6 txtCenter">NO</p>
                     </td>
                     <td width="6%">
-                      <p class="txt6"></p>
+                      <p class="txt6">X</p>
                     <% end %>
                     <td width="23%" class="bgGray">
                       <p class="txt6"></p>
@@ -1856,7 +1856,7 @@
                       <%= @own.estado_c %>
                     <% end %></p></td>
                     <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                    <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own %><%= @own.sexo %><% end %></p></td>
                   </tr>
                 </table>
                 <table>
@@ -1876,9 +1876,9 @@
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
-                    <td class="bbBlack" colspan="4"><p class="txt6"></p><% if @own %>
+                    <td class="bbBlack" colspan="4"><p class="txt6"><% if @own %>
                       <%= @own.ocupacion %>
-                    <% end %></td>
+                    <% end %></p></td>
                     <td class="bbBlack" rowspan="3"><p class="txt6"></p></td>
                   </tr>
                   <tr>
@@ -1949,7 +1949,7 @@
                       <%= @own1.estado_c %>
                     <% end %></p></td>
                     <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                    <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own1 %><%= @own1.sexo %><% end %></p></td>
                   </tr>
                 </table>
                 <table>
@@ -1968,7 +1968,7 @@
                     <% end %></p></td>
                   </tr>
                   <tr>
-                    <td class="bbBlack"><p class="txt6">Ocupacion</p></td>
+                    <td class="bbBlack"><p class="txt6">Ocupación</p></td>
                     <td class="bbBlack" colspan="4"><p class="txt6"><% if @own1 %>
                       <%= @own1.ocupacion %>
                     <% end %></p></td>
@@ -2042,7 +2042,9 @@
                       <%= @own2.estado_c %>
                     <% end %></p></td>
                     <td width="7%" class="bbBlack"><p class="txt6">Sexo</p></td>
-                    <td width="15%" class="bbBlack"><p class="txt6"></p></td>
+                    <td width="15%" class="bbBlack"><p class="txt6"><% if @own2 %>
+                      <%= @own2.sexo %>
+                    <% end %></p></td>
                   </tr>
                 </table>
                 <table>
@@ -2085,7 +2087,7 @@
                   <tr>
                     <td width="38%" class="bbBlack" rowspan="2"><p class="txt6">Empadronador(a)</p></td>
                     <td width="15%" class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td width="47%" class="bbBlack"><p class="txt6"><%= @rural.user.name  %> <%= @rural.user.last_name  %></p></td>
+                    <td width="47%" class="bbBlack"><p class="txt6"><%= @rural.empadronador_nombre %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2094,7 +2096,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Inspector(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @rural.inspector_nombre %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2103,7 +2105,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Supervisor(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @rural.supervisor_nombre %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2112,7 +2114,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Captador(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= @rural.captador_nombre %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2120,28 +2122,28 @@
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Empresa</p></td>
-                    <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
+                    <td class="bbBlack" colspan="2"><p class="txt6"><%= @rural.empresa %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Metodologia </p></td>
-                    <td class="bbBlack" colspan="2"><p class="txt6"></p></td>
+                    <td class="bbBlack" colspan="2"><p class="txt6"><%= @rural.metodologia %></p></td>
                   </tr>
                 </table>
                 <table class="bbBlack">
                   <tr>
                     <td width="34%"><p class="txt6">Fecha del Levantamiento</p></td>
-                    <td width="4%"><p class="txt6"></p></td>
+                    <td width="4%"><p class="txt6"><%= @rural.fecha_levantamiento %></p></td>
                     <td width="17%"><p class="txt6"></p></td>
                     <td width="34%"><p class="txt6">Hora del Levantamiento</p></td>
-                    <td width="11%"><p class="txt6"></p></td>
+                    <td width="11%"><p class="txt6"><%= @rural.hora_levantamiento %></p></td>
                   </tr>
                   <tr>
                     <td colspan="2" class="tbBlack"><p class="txt6">Equipo utilizado</p></td>
-                    <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
+                    <td colspan="3" class="tbBlack"><p class="txt6"><%= @rural.equipo %></p></td>
                   </tr>
                   <tr>
                     <td colspan="2" class="tbBlack"><p class="txt6">Verificado por</p></td>
-                    <td colspan="3" class="tbBlack"><p class="txt6"></p></td>
+                    <td colspan="3" class="tbBlack"><p class="txt6"><%= @rural.verficado %></p></td>
                   </tr>
                 </table>
                 <table>
@@ -2150,7 +2152,7 @@
                     <td width="17%" class="bbBlack" rowspan="2"></td>
                   </tr>
                   <tr>
-                    <td class="bbBlack" style="height: 26px;" valign="top"><p class="txt6">Cedula del Propietario/Ocupante</p></td>
+                    <td class="bbBlack" style="height: 26px;" valign="top"><p class="txt6">Cedula del Propietario/Ocupante <br> <%= @rural.cedula_propetario %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack" valign="top" colspan="2"><p class="txt8">CROQUIS DEL PREDIO <span style="float: right;">Un cuadro = ____ mts.</span> </p></td>

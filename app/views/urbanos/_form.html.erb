@@ -210,7 +210,7 @@
    <div class="row">
      <div class="col-md-4">
       <%= f.input "piso_cemento", :label => "Cemento" %> <br>
-      <%= f.input "piso_baldosa", :label => "Baldosas" %>
+      <%= f.input "piso_baldosa", :label => "Baldosas" %> <br>
       <%= f.input "piso_otro", :label => "Otro" %>
     </div>
     <div class="col-md-4">
@@ -246,28 +246,22 @@
 </div>
 <hr>
 <div id="demo9" class="collapse">
-  <p>Empadronador</p>
-  <%= f.input :empadronador_nombre, :label => "Nombre"  %>
-  <%= f.input :empadronador_firma, :label => "Firma"  %>
-  <p>Inspector</p>
-  <%= f.input :inspector_nombre, :label => "Nombre"  %>
-  <%= f.input :inspector_firma, :label => "Firma"  %>
-  <p>Supervisor</p>
-  <%= f.input :supervisor_nombre, :label => "Nombre" %>
-  <%= f.input :supervisor_firma, :label => "Firma" %>
-  <p>Captador</p>
-  <%= f.input :captador_nombre, :label => "Nombre" %>
-  <%= f.input :captador_firma, :label => "Firma" %>
-  <%= f.input :empresa, :label => "Empresa" %>
-  <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
-  <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
-  <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
-  <%= f.input :equipo , :label => "Equipo" %>
-  <%= f.input :verficado, :label => "Verficado por" %>
-  <%= f.input :firma_propietario, :label => "Firma de Propietario" %>
-  <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
-  <%= f.input :funcionario_firma, :label => "Nombre de Funcionario" %>
-  <%= f.input :sustanciador_firma, :label =>"Nombre de Sustanciador"  %>
+
+    <%= f.input :empadronador_nombre, :label => "Empadronador Nombre"  %>
+
+    <%= f.input :inspector_nombre, :label => "Inspector Nombre"  %>
+
+    <%= f.input :supervisor_nombre, :label => "Supervisor Nombre" %>
+
+    <%= f.input :captador_nombre, :label => "Captador Nombre" %>
+    <%= f.input :empresa, :label => "Empresa" %>
+    <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
+    <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
+    <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
+    <%= f.input :equipo , :label => "Equipo" %>
+    <%= f.input :verficado, :label => "Verficado por" %>
+    <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
+
 </div>
 </div>
 <br>
