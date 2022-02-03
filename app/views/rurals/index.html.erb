@@ -8,11 +8,18 @@
        <h4>Fichas Registradas</h4>
      </div>
     <br>
+    <div class="text-center">
+    <%= form_tag rurals_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search"%>
+    <% end %>
+    </div>
+    <br>
      <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Numero de Lote</th>
+            <th scope="col">Numero de Predio</th>
             <th scope="col"><i class="fas fa-eye"></i></th>
             <th scope="col"><i class="fas fa-pencil-alt"></i></th>
             <th scope="col"><i class="fas fa-trash-alt"></i></th>

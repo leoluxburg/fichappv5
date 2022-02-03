@@ -62,7 +62,7 @@
         </div>
         <div class="modal-body">
           <% unless @user.otp_module_enabled? %>
-          <% qr = RQRCode::QRCode.new(resource.provisioning_uri, :size => 8, :level => :h) %>
+          <% qr = RQRCode::QRCode.new(resource.provisioning_uri, :size => 12, :level => :h) %>
           <%= raw qr.as_html %>
           <hr>
           <% end %>

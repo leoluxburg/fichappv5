@@ -6,7 +6,7 @@ class NeighborsController < ApplicationController
 
   def create
 
-      @neighbor = Neighbor.new(neighbor_params)
+    @neighbor = Neighbor.new(neighbor_params)
     # we need `rural_id` to associate neighbor with corresponding rural
     @rural = Rural.find(params[:rural_id ])
     @neighbor.rural = @rural

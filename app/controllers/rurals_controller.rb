@@ -3,7 +3,7 @@ class RuralsController < ApplicationController
   layout false, only: [:report]
   # GET /rurals or /rurals.json
   def index
-    @rurals = Rural.all
+    @rurals = Rural.search(params[:search])
   end
 
   # GET /rurals/1 or /rurals/1.json

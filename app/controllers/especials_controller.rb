@@ -3,7 +3,7 @@ class EspecialsController < ApplicationController
   layout false, only: [:report]
   # GET /especials or /especials.json
   def index
-    @especials = Especial.all
+    @especials = Especial.search(params[:search])
   end
 
   # GET /especials/1 or /especials/1.json

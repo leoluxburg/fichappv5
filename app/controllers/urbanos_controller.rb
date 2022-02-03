@@ -3,7 +3,7 @@ class UrbanosController < ApplicationController
   layout false, only: [:report]
   # GET /urbanos or /urbanos.json
   def index
-    @urbanos = Urbano.all
+    @urbanos = Urbano.search(params[:search])
   end
 
   # GET /urbanos/1 or /urbanos/1.json
