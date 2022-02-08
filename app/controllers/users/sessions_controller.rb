@@ -1,9 +1,17 @@
 class Users::SessionsController < Devise::SessionsController
+  skip_before_action :verify_authenticity_token, :only => :create
+
   def create
+    puts 'Debug 1'
     self.resource = warden.authenticate!(auth_options)
+    puts resource
+    puts resource.otp_module_disabled?
+    puts resource_name
 
     if resource && resource.otp_module_disabled?
+      puts 'Debug 2'
       continue_sign_in(resource, resource_name)
+      puts 'Debug 3'
 
     elsif resource && resource.otp_module_enabled?
 
@@ -25,8 +33,11 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def continue_sign_in(resource, resource_name)
+    puts 'Debug 4'
     set_flash_message!(:notice, :signed_in)
+    puts 'Debug 5'
     sign_in(resource_name, resource)
+    puts 'Debug 6'
     yield resource if block_given?
     respond_with resource, location: after_sign_in_path_for(resource)
   end

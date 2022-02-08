@@ -1,6 +1,7 @@
 class UrbanosController < ApplicationController
   before_action :set_urbano, only: %i[ show edit update destroy report ]
   layout false, only: [:report]
+
   # GET /urbanos or /urbanos.json
   def index
     @urbanos = Urbano.search(params[:search])

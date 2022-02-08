@@ -3,17 +3,22 @@
   <div class="jumbotron" style="background-color: white;">
     <div class="">
       <div class="text-center">
+       <img src="https://pbs.twimg.com/profile_images/1201996982224670725/n8DvaV61_400x400.jpg" alt=""height="180">
+       <br>
+       <h2>FICHAS RURALES</h2>
        <h1><i class="fas fa-mountain"></i></h1>
-       <h2>RURAL</h2>
-       <h4>Fichas Registradas</h4>
      </div>
     <br>
     <div class="text-center">
-    <%= form_tag rurals_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search"%>
-    <% end %>
-    </div>
+        <form action="/rurals" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" size="50" placeholder="Numero de Lote" name="search" id="search">
+            <div class="input-group-btn">
+              <button class="btn btn-fichapp" type="submit" value="Search" data-disable-with="Search" name="commit">Buscar</button>
+            </div>
+          </div>
+        </form>
+      </div>
     <br>
      <div class="table-responsive">
       <table class="table">
