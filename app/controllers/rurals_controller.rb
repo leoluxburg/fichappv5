@@ -40,7 +40,7 @@ class RuralsController < ApplicationController
     @rural = current_user.rurals.new(rural_params)
     respond_to do |format|
       if @rural.save
-        format.html { redirect_to @rural, notice: "Rural was successfully created." }
+        format.html { redirect_to @rural, notice: "Ficha creada con exito." }
         format.json { render :show, status: :created, location: @rural }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class RuralsController < ApplicationController
   def update
     respond_to do |format|
       if @rural.update(rural_params)
-        format.html { redirect_to @rural, notice: "Rural was successfully updated." }
+        format.html { redirect_to @rural, notice: "Ficha editada con exito." }
         format.json { render :show, status: :ok, location: @rural }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class RuralsController < ApplicationController
   def destroy
     @rural.destroy
     respond_to do |format|
-      format.html { redirect_to rurals_url, notice: "Rural was successfully destroyed." }
+      format.html { redirect_to rurals_url, notice: "Ficha eliminada con exito." }
       format.json { head :no_content }
     end
   end

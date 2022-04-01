@@ -39,7 +39,7 @@ class UrbanosController < ApplicationController
     @urbano =  current_user.urbanos.new(urbano_params)
     respond_to do |format|
       if @urbano.save
-        format.html { redirect_to @urbano, notice: "Urbano was successfully created." }
+        format.html { redirect_to @urbano, notice: "Ficha creada con exito." }
         format.json { render :show, status: :created, location: @urbano }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class UrbanosController < ApplicationController
   def update
     respond_to do |format|
       if @urbano.update(urbano_params)
-        format.html { redirect_to @urbano, notice: "Urbano was successfully updated." }
+        format.html { redirect_to @urbano, notice: "Ficha editada con exito." }
         format.json { render :show, status: :ok, location: @urbano }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class UrbanosController < ApplicationController
   def destroy
     @urbano.destroy
     respond_to do |format|
-      format.html { redirect_to urbanos_url, notice: "Urbano was successfully destroyed." }
+      format.html { redirect_to urbanos_url, notice: "Ficha eliminada con exito." }
       format.json { head :no_content }
     end
   end

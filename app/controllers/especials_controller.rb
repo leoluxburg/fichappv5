@@ -38,7 +38,7 @@ class EspecialsController < ApplicationController
     @especial = current_user.especials.new(especial_params)
     respond_to do |format|
       if @especial.save
-        format.html { redirect_to @especial, notice: "Especial was successfully created." }
+        format.html { redirect_to @especial, notice: "Ficha creada con exito." }
         format.json { render :show, status: :created, location: @especial }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class EspecialsController < ApplicationController
   def update
     respond_to do |format|
       if @especial.update(especial_params)
-        format.html { redirect_to @especial, notice: "Especial was successfully updated." }
+        format.html { redirect_to @especial, notice: "Ficha editada con exito." }
         format.json { render :show, status: :ok, location: @especial }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class EspecialsController < ApplicationController
   def destroy
     @especial.destroy
     respond_to do |format|
-      format.html { redirect_to especials_url, notice: "Especial was successfully destroyed." }
+      format.html { redirect_to especials_url, notice: "Ficha eliminada con exito." }
       format.json { head :no_content }
     end
   end
