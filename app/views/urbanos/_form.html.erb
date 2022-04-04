@@ -246,7 +246,13 @@
 </div>
 <hr>
 <div id="demo9" class="collapse">
-
+    <% if current_user.role === "Empadronador" %>
+    <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
+    <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
+    <%= f.input :equipo , :label => "Equipo" %>
+    <%= f.input :verficado, :label => "Verficado por" %>
+    <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
+    <% else %>
     <%= f.input :empadronador_nombre, :label => "Empadronador Nombre"  %>
 
     <%= f.input :inspector_nombre, :label => "Inspector Nombre"  %>
@@ -256,11 +262,7 @@
     <%= f.input :captador_nombre, :label => "Captador Nombre" %>
     <%= f.input :empresa, :label => "Empresa" %>
     <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
-    <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
-    <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
-    <%= f.input :equipo , :label => "Equipo" %>
-    <%= f.input :verficado, :label => "Verficado por" %>
-    <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
+    <% end %>
 
 </div>
 </div>
