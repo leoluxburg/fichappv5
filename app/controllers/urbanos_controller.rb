@@ -14,6 +14,8 @@ class UrbanosController < ApplicationController
 
   # GET /urbanos/new
   def new
+    @users = User.all
+    puts @users.pluck(:id)
     @urbano = Urbano.new
   end
   def report

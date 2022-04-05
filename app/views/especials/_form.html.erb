@@ -236,21 +236,24 @@
   <hr>
   <div id="demo9" class="collapse">
 
-    <%= f.input :empadronador_nombre, :label => "Empadronador Nombre"  %>
+    <% if current_user.role === "Supervisor" %>
+    <%= f.input :empadronador_nombre, :label => "Empadronador Nombre", collection: @users  %>
 
-    <%= f.input :inspector_nombre, :label => "Inspector Nombre"  %>
+    <%= f.input :inspector_nombre, :label => "Inspector Nombre", collection: @users  %>
 
-    <%= f.input :supervisor_nombre, :label => "Supervisor Nombre" %>
+    <%= f.input :supervisor_nombre, :label => "Supervisor Nombre", collection: @users %>
 
-    <%= f.input :captador_nombre, :label => "Captador Nombre" %>
+    <%= f.input :captador_nombre, :label => "Captador Nombre", collection: @users %>
     <%= f.input :empresa, :label => "Empresa" %>
+    <% else %>
     <%= f.input :metodologia, :label => "Metodologia Utilizada" %>
     <%= f.input :fecha_levantamiento, :label => "Fecha de Levantamiento", start_year: Time.now.year - 100   %>
     <%= f.input :hora_levantamiento, :label => "Hora de Levantamiento"%>
     <%= f.input :equipo , :label => "Equipo" %>
     <%= f.input :verficado, :label => "Verficado por" %>
     <%= f.input :cedula_propetario, :label => "Cedula de Propietario" %>
-  </div>
+    <% end %>
+
 </div>
 <br>
 <div class="form-actions text-center">

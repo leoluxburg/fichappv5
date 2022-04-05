@@ -13,6 +13,8 @@ class EspecialsController < ApplicationController
 
   # GET /especials/new
   def new
+    @users = User.all
+    puts @users.pluck(:id)
     @especial = Especial.new
   end
 

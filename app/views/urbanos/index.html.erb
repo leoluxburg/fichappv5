@@ -46,7 +46,11 @@
     </div>
     <br>
     <div class="text-center">
+      <% if current_user.role === "Supervisor" %>
+      <p></p>
+      <% else %>
       <%= link_to 'Registar', new_urbano_path, class: 'btn btn-fichapp' %>
+      <% end %>
     </div>
   </div>
 </div>

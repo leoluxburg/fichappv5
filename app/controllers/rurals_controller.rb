@@ -27,6 +27,8 @@ class RuralsController < ApplicationController
   end
   # GET /rurals/new
   def new
+    @users = User.all
+    puts @users.pluck(:id)
     @rural = Rural.new
   end
 
