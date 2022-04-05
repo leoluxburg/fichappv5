@@ -33,6 +33,8 @@ class UrbanosController < ApplicationController
 
   # GET /urbanos/1/edit
   def edit
+    @users = User.all
+    puts @users.pluck(:id)
   end
 
   # POST /urbanos or /urbanos.json

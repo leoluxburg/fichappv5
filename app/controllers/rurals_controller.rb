@@ -34,6 +34,8 @@ class RuralsController < ApplicationController
 
   # GET /rurals/1/edit
   def edit
+    @users = User.all
+    puts @users.pluck(:id)
   end
 
   # POST /rurals or /rurals.json

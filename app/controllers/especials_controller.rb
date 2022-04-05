@@ -20,6 +20,8 @@ class EspecialsController < ApplicationController
 
   # GET /especials/1/edit
   def edit
+    @users = User.all
+    puts @users.pluck(:id)
   end
 
   def report
