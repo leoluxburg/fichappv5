@@ -51,32 +51,36 @@
 </div>
 </div>
 <div class="container">
-  <div class="modal fade" id="two_factor">
+  <div class="modal fade" id="two_factor" st>
     <% url = @user.otp_module_enabled? ? disable_multi_factor_authentication_user_path(@user) : enable_multi_factor_authentication_user_path(@user) %>
     <%= simple_form_for :multi_factor_authentication, url: url, html: { class: 'form-inline' }  do |f| %>
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><%= @user.otp_module_enabled? ? 'Desactivar' : 'Activar' %> Autenticación de Dos Pasos</h4>
-        </div>
-        <div class="modal-body">
-          <% unless @user.otp_module_enabled? %>
-          <% qr = RQRCode::QRCode.new(resource.provisioning_uri, :size => 12, :level => :h) %>
-          <%= raw qr.as_html %>
-          <hr>
-          <% end %>
-          <div class='form-group'>
-            <div class='text-center'>
-              <%= f.input_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%= @user.otp_module_enabled? ? 'Desactivar' : 'Activar' %> Autenticación de Dos Pasos</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+            <% unless @user.otp_module_enabled? %>
+            <% qr = RQRCode::QRCode.new(resource.provisioning_uri, :size => 12, :level => :h) %>
+            <%= raw qr.as_html %>
+            <hr>
+            <% end %>
+            <div class='form-group'>
+              <div class='text-center'>
+                <%= f.input_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
+                <br>
+                <br>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-fichapp' %>
+          <div class="modal-footer">
+            <%= f.submit "Update", class: 'btn btn-fichapp' %>
+          </div>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
 </div>

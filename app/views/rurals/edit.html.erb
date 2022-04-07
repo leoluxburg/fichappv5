@@ -1,21 +1,19 @@
 <br>
- <div class="container">
-<div class="jumbotron" style="background-color: white;">
-  <div class="container">
-    <div class="text-center">
-      <img src="https://i.ibb.co/4YtSQ8N/municipioarraijanlogo-0.jpg" alt="municipioarraijanlogo-0" alt=""height="180">
-       <br>
-       <br>
-    <h1><i class="fas fa-mountain"></i></h1>
-    <h2 class="text-center">Ficha Catastral - Rural</h2>
+<div class="container">
+  <div class="jumbotron" style="background-color: white;">
+    <div class="container">
+      <div class="text-center">
+        <img src="https://i.ibb.co/4YtSQ8N/municipioarraijanlogo-0.jpg" alt="municipioarraijanlogo-0" alt=""height="180">
+        <br>
+        <br>
+        <h1><i class="fas fa-mountain"></i></h1>
+        <h2 class="text-center">Ficha Catastral - Rural</h2>
+      </div>
+        <%= render 'form', rural: @rural %>
+        <%= link_to 'Show', @rural %> |
+        <%= link_to 'Back', rurals_path %>
     </div>
-
-<%= render 'form', rural: @rural %>
-
-<%= link_to 'Show', @rural %> |
-<%= link_to 'Back', rurals_path %>
- </div>
-</div>
+  </div>
 </div>
 <br>
 <br>
