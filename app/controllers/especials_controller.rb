@@ -25,6 +25,7 @@ class EspecialsController < ApplicationController
   end
 
   def report
+    @users = User.all
     @c =  @especial.special_neighbors[0]
     @c1 =  @especial.special_neighbors[1]
     @c2 =  @especial.special_neighbors[2]

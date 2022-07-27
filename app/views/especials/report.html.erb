@@ -2694,7 +2694,8 @@
                   <tr>
                     <td width="38%" class="bbBlack" rowspan="2"><p class="txt6">Empadronador(a)</p></td>
                     <td width="15%" class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td width="47%" class="bbBlack"><p class="txt6"><%= @especial.empadronador_nombre %></p></td>
+                    <% empadronador_n = @especial.empadronador_nombre.to_i %>
+                    <td width="47%" class="bbBlack"><p class="txt6"><%= @users[empadronador_n].last_name %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2703,7 +2704,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Inspector(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"><%= @especial.inspector_nombre %></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= User.where(id = @especial.inspector_nombre).name %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2712,7 +2713,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Supervisor(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"><%= @especial.supervisor_nombre %></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= User.where(id = @especial.supervisor_nombre).name %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
@@ -2721,7 +2722,7 @@
                   <tr>
                     <td class="bbBlack" rowspan="2"><p class="txt6">Captador(a)</p></td>
                     <td class="bbBlack"><p class="txt6">Nombre</p></td>
-                    <td class="bbBlack"><p class="txt6"><%= @especial.captador_nombre %></p></td>
+                    <td class="bbBlack"><p class="txt6"><%= User.where(id = @especial.captador_nombre).name %></p></td>
                   </tr>
                   <tr>
                     <td class="bbBlack"><p class="txt6">Firma</p></td>
